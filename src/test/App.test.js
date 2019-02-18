@@ -1,11 +1,17 @@
 import App from '../App'
 import React, {Component} from 'react';
-import {shallow, mount} from 'enzyme'
+import {shallow, mount, render} from 'enzyme'
 
 
 describe('App js shouls say hello world', ()=>{
 
-    const wrapper = mount(< App/>)
+    const renderWrapper = render(< App/>)
+
+    it('should say hello', ()=>{
+        expect(renderWrapper.find('div h1').text()).toBe('Hello, React!')
+    })
+
+    const wrapper = shallow(< App/>)
 
     it('should say hello', ()=>{
         expect(
