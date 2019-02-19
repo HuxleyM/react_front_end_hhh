@@ -6,26 +6,24 @@ import {shallow, mount, render} from 'enzyme'
 describe('App js shouls say hello world', ()=>{
 
     const renderWrapper = render(< App/>)
-
-    it('should say hello', ()=>{
-        expect(renderWrapper.find('div h1').text()).toBe('Hello, React!')
-    })
-
     const wrapper = shallow(< App/>)
+
+
+    it('should display the app name', ()=>{
+        expect(renderWrapper.find('div h1').text()).toBe('Keep Ahead')
+    })
 
     it('should say hello', ()=>{
         expect(
             wrapper.containsMatchingElement(
-                <h1>Hello, React!</h1>
+                <h1>Keep Ahead</h1>
             )
         ).toBeTruthy()
     })
 
     describe('Show Venues', () => {
-      const renderWrapper = render(< App/>)
-
       it('renders a list of venues', ()=> {
-        expect(renderWrapper.find('ul'))
+        expect(renderWrapper.find('ul').text()).toContain("crisis cafe")
       })
     })
 })
