@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
 
+const venues = [
+  {
+    'name': 'crisis cafe',
+    'address': '58 commercial street, London, E1 ABC'
+  },
+  {
+    'name': 'starbucks',
+    'address': '58 commercial road, London, E2 BBC'
+  }
+]
 
 export default class ShowVenues extends Component {
   constructor (props){
@@ -8,8 +18,18 @@ export default class ShowVenues extends Component {
   }
 
   requestVenueList() {
-    fetch('http://localhost:2000/api/1/venues')
+    fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues')
     .then((response) => {return response.json()})
     .then((response) => {console.log(response)})
+  }
+
+  render() {
+    const list = venues.map((venue, index) => {
+      return(
+        <p key={index}><li>{venue.name} {venue.address}</li></p>
+
+      )
+    })
+    return <ul>{list}</ul>
   }
 }

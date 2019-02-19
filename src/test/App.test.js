@@ -20,4 +20,12 @@ describe('App js shouls say hello world', ()=>{
             )
         ).toBeTruthy()
     })
+
+    describe('Show Venues', () => {
+      const renderWrapper = render(< App/>)
+
+      it('renders a list of venues', ()=> {
+        expect(renderWrapper.find('ul'))
+      })
+    })
 })
