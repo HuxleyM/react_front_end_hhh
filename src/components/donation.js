@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import DonationForm from './components/donationsForm'
 
 export default class Donation extends Component {
   constructor (props){
@@ -10,11 +11,11 @@ export default class Donation extends Component {
   }
 
   render () {
-    const { venue } = this.state;
+    const { donation } = this.state;
 
     return (
       <div>
-      {(venue.length < 0) ?
+      {(donation.length < 1) ?
       <h1>FORM</h1> :
     <h1>Thanks for your donation</h1>}
       </div>

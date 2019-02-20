@@ -13,7 +13,7 @@ describe('Donation', () => {
   )
 
   it('displays a div', () => {
-    expect(wrapper.containsMatchingElement(<div></div>)).toBeTruthy();
+    expect(wrapper.find(<div></div>)).toBeTruthy();
   })
 
   it('check correct venue is present in state', () => {
@@ -22,6 +22,6 @@ describe('Donation', () => {
 
   it('renders a form if donation length < 1', () => {
     console.log(wrapper.debug());
-    expect(wrapper.containsMatchingElement(<h1>FORM</h1>)).toBeTruthy();
+    expect(wrapper.find('div h1').text()).toBe('FORM');
   })
 })
