@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 export default class ShowVenues extends Component {
   constructor (props){
     super(props);
-    console.log(props)
     this.state = {
       venues : this.props.venueList
     }
