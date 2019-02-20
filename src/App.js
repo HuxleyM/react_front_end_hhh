@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-//import DisplayVenue from './components/displayVenue'
+
 
 export default class App extends Component {
   constructor(props) {

@@ -1,16 +1,22 @@
 import React, {Component} from 'react';
+import DisplayVenue from './displayVenue'
 
 export default class ShowVenues extends Component {
   constructor (props){
     super(props);
-    console.log(props)
     this.state = {
-      venues : this.props.venueList
-    }
+      venues : this.props.venueList,
+      showVenue : false,
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
   }
 
-  showVenue() {
-    console.log('hi');
+
+
+  _onButtonClick() {
+    this.setState({
+      showVenue: true,
+    });
   }
 
   render() {
@@ -20,10 +26,16 @@ export default class ShowVenues extends Component {
       return (
         <p key={index}>
           <li>{venue.name} {venue.address}</li>
-          <button onClick={this.showVenue}>view</button>
+
+          <button onClick={this._onButtonClick}>view</button>
+
         </p>
       )
-    })
-    return <ul>{list}</ul>
+    }) 
+    return (<div>
+    { this.state.showVenue ? 
+     <DisplayVenue/> :
+      <ul>{list}</ul> 
+    }</ div>)
   }
 }
