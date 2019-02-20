@@ -5,17 +5,40 @@ export default class DisplayVenue extends Component {
     super(props);
     this.state = {
       venues: this.props.venueList,
-      venueID: this.props.id
+      id: this.props.venueId,
+      showConfirmation: false
     }
-    console.log(this.props)
-    console.log(this.state)
   }
 
+_onButtonClick(){
+  this.setState({
+    showConfirmation: true
+  })
+}
+
+
 render() {
+   const venues = this.state.venues;
+   const venueId = this.state.id;
+   const venue = undefined;
+   const list = venues.map((venue, index) =>{
+    if (index === venueId) {
+      venue = venue
+    return (
+      <div key={index}>
+      <p>{venue.name} {venue.address} </p>
+      <button onClick={this._onButtonClick}> Donate </button>
+      </div>
+      )
+    }
+   })
    return(
      <div>
-     <h1>Hello world</h1>
-     </div>
+     {this.state.showConfirmation ? 
+      <Donation
+      venue={venue}/> :
+      <div>{list}</div>
+    } </div>
    )
  }
 }
