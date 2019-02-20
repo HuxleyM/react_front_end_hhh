@@ -3,11 +3,14 @@ import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 
 
-describe('App js shouls say hello world', ()=>{
+describe('App js shouls say Keep Ahead', ()=>{
+    let renderWrapper
+    let wrapper
 
-    const renderWrapper = render(< App/>)
-    const wrapper = shallow(< App/>)
-
+    beforeEach(() => {
+      renderWrapper = render(< App/>)
+      wrapper = shallow(< App/>)
+    })
 
     it('should display the app name', ()=>{
         expect(renderWrapper.find('div h1').text()).toBe('Keep Ahead')
@@ -23,7 +26,7 @@ describe('App js shouls say hello world', ()=>{
 
     describe('Show Venues', () => {
       it('renders a list of venues', ()=> {
-        expect(renderWrapper.find('ul').text()).toContain("crisis cafe")
+        expect(renderWrapper.find('li').text()).toEqual("Crisis Cafe")
       })
     })
 })
