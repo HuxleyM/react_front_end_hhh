@@ -1,29 +1,31 @@
 import React, {Component} from 'react';
 
-export default class DonationForm extends Component {
-  render () {
+const DonationForm = ( {handleForm }) =>{
+
     return(
-      <form>
+      <form onSubmit ={ handleForm }>
         <label>Amount</label>
         <input
           type="text"
-          name="amount"
-          value={amount}
+          id="amount"
+          placeholder = 'amount'
           ></input>
 
-          <input
-            type="text"
-            name="passphrase"
-            value={passphrase}
-            ></input>
+        <input
+          type="text"
+          id="passphrase"
+          placeholder = 'rhinounicorn'
+          ></input>
 
-            <input
-              id='submit_form'
-              type="submit"
-              value="Submit"
-              ></input>
-              </form>
+        <input
+          id='submit_form'
+          type="submit"
+          value="Submit"
+          ></input>
 
+      </form>
     )
-  }
+  
 }
+
+export default DonationForm

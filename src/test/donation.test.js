@@ -21,7 +21,8 @@ describe('Donation', () => {
   })
 
   it('renders a form if donation length < 1', () => {
-    console.log(wrapper.debug());
     expect(wrapper.find('div h1').text()).toBe('FORM');
   })
+
+  
 })
