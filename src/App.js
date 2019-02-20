@@ -1,6 +1,7 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
+import Donations from './components/donations'
 //import DisplayVenue from './components/displayVenue'
 
 export default class App extends Component {
@@ -32,9 +33,11 @@ export default class App extends Component {
               {(venues.length > 0) ?
                 <ShowVenues
                 venueList={venues}
-                /> :
+                />
+                :
                 <div> loading.... </div>
                }
+               <Donations /> 
           </div>
       );
     }
