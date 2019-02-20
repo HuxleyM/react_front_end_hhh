@@ -39,10 +39,9 @@ describe('App js shouls say Keep Ahead', ()=>{
         ).toBeTruthy()
       })
 
-      it('should render ShowVenues div if venues array contains data', async ()=> {
+      it('should render ShowVenues div if venues array contains data', () => {
         var dummy = mountWrapper
         dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
-        await dummy.instance().componentDidMount();
         expect(dummy.find('li').first().text()).toBe('dummy name dummy address')
       })
     })
