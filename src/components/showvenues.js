@@ -1,28 +1,50 @@
 import React, {Component} from 'react';
+import DisplayVenue from './displayVenue'
 
 export default class ShowVenues extends Component {
   constructor (props){
     super(props);
     this.state = {
-      venues : this.props.venueList
-    }
+      venues : this.props.venueList,
+      showVenue : false,
+      venueId: -1
+    };
+    this._onButtonClick = this._onButtonClick.bind(this);
   }
 
-  showVenue() {
-    console.log('hi');
+  _onButtonClick() {
+    this.setState({
+      showVenue: true
+    });
   }
+
+  _updateIndex(index){
+    this.setState({
+      venueId: index
+    })
+  }
+
 
   render() {
     const venues = this.state.venues;
+    const id = this.state.venueId
 
     const list = venues.map((venue, index) => {
       return (
         <p key={index}>
-          <li>{venue.name} {venue.address}</li>
-          <button onClick={this.showVenue}>view</button>
+          <li> {venue.name} {venue.address}</li>
+          <button onClick={()=>{this._onButtonClick(); this._updateIndex(index)}}>view</button>
         </p>
       )
     })
-    return <ul>{list}</ul>
+
+    return (<div>
+    { this.state.showVenue ?
+     <DisplayVenue
+     venueList={venues}
+     venueId={id}/> :
+      <ul>{list}</ul>
+    }</ div>)
+
   }
 }
