@@ -12,10 +12,10 @@ const venues = [
 ]
 
 export default class ShowVenues extends Component {
-  // constructor (props){
-  //   super();
-  //   this.list = this.requestVenueList();
-  // }
+  constructor (props){
+    super(props);
+    this.list = this.requestVenueList();
+  }
 
   // requestVenueList() {
   //   fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues')
