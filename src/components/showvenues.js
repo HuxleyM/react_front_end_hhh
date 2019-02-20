@@ -4,7 +4,9 @@ export default class ShowVenues extends Component {
   constructor (props){
     super(props);
     console.log(props)
-    //console.dir(`Print Beta:${props}`);
+    this.state = {
+      venues : this.props.venueList
+    }
   }
 
   showVenue() {
@@ -12,18 +14,16 @@ export default class ShowVenues extends Component {
   }
 
   render() {
+    const venues = this.state.venues;
 
-    return <div>Hello world</div>
+    const list = venues.map((venue, index) => {
+      return (
+        <p key={index}>
+          <li>{venue.name} {venue.address}</li>
+          <button onClick={this.showVenue}>view</button>
+        </p>
+      )
+    })
+    return <ul>{list}</ul>
   }
 }
-
-
-// const venues = this.props.venueList;
-// const list = Object.entries(venues);
-// console.log(`Print Alpha:${list}`)
-// // list.forEach(venues)((venue, index) => {
-//   //return( null
-//     // <p key={index}><li>{venue.name} {venue.address}</li>
-//     // <button onClick={this.showVenue}>view</button></p>
-//   //)
-// // })

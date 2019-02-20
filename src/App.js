@@ -6,7 +6,6 @@ import ShowVenues from './components/showvenues'
 export default class App extends Component {
   constructor(props) {
     super(props)
-    console.log('line 9')
     this.state = {
       venues: []
       }
@@ -25,14 +24,17 @@ export default class App extends Component {
     })
   }
     render() {
-      console.log(`hi line 31 ${this.state.venues}`)
-        return (
 
+      const { venues } = this.state;
+        return (
             <div className="App">
                 <h1>Keep Ahead</h1>
-                <ShowVenues
-                venueList={this.state.venues}
-                />
+                {(venues.length > 0) ?
+                  <ShowVenues
+                  venueList={venues}
+                  /> :
+                  <div> loading.... </div>
+                 }
             </div>
         );
     }
