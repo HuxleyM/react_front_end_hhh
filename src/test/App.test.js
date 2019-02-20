@@ -6,10 +6,12 @@ import {shallow, mount, render} from 'enzyme'
 describe('App js shouls say Keep Ahead', ()=>{
     let renderWrapper
     let wrapper
+    let mountWrapper
 
     beforeEach(() => {
       renderWrapper = render(< App/>)
       wrapper = shallow(< App/>)
+      mountWrapper = mount(< App/>)
     })
 
     it('should display the app name', ()=>{
@@ -24,9 +26,23 @@ describe('App js shouls say Keep Ahead', ()=>{
         ).toBeTruthy()
     })
 
+
+
     describe('Show Venues', () => {
-      it('renders a list of venues', ()=> {
-        expect(renderWrapper.find('li').text()).toEqual("Crisis Cafe")
+      it('should render loading div if no values present', ()=> {
+        var dummy = mountWrapper
+        dummy.setState( { venues: [] } )
+        expect(
+          dummy.containsMatchingElement(
+            <div> loading.... </div>
+          )
+        ).toBeTruthy()
+      })
+
+      it('should render ShowVenues div if venues array contains data', () => {
+        var dummy = mountWrapper
+        dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
+        expect(dummy.find('li').first().text()).toBe('dummy name dummy address')
       })
     })
-})
+  })

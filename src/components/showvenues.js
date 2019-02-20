@@ -37,5 +37,6 @@ export default class ShowVenues extends Component {
      <DisplayVenue/> :
       <ul>{list}</ul> 
     }</ div>)
+
   }
 }
