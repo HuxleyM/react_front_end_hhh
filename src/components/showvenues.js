@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
 
-const venues = [
-  {
-    'name': 'crisis cafe',
-    'address': '58 commercial street, London, E1 ABC'
-  },
-  {
-    'name': 'starbucks',
-    'address': '58 commercial road, London, E2 BBC'
-  }
-]
-
 export default class ShowVenues extends Component {
   constructor (props){
     super(props);
-    this.list = this.requestVenueList();
+    console.log(props);
+    // this.list = this.requestVenueList();
   }
 
   // requestVenueList() {
@@ -28,12 +18,14 @@ export default class ShowVenues extends Component {
   }
 
   render() {
-    const list = venues.map((venue, index) => {
-      return(
-        <p key={index}><li>{venue.name} {venue.address}</li>
-        <button onClick={this.showVenue}>view</button></p>
+    const venues = this.props.venues;
+    const list = Object.entries(venues);
+    // list.forEach(venues)((venue, index) => {
+      return( null
+        // <p key={index}><li>{venue.name} {venue.address}</li>
+        // <button onClick={this.showVenue}>view</button></p>
       )
-    })
+    // })
     return <ul>{list}</ul>
   }
 }
