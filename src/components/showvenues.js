@@ -23,6 +23,7 @@ export default class ShowVenues extends Component {
         </p>
       )
     })
+    
     return <ul>{list}</ul>
   }
 }
