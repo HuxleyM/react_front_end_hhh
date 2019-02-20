@@ -4,7 +4,7 @@ import {shallow, mount, render} from 'enzyme'
 
 
 describe('MVP feature', () => {
-  it('You can choose a venue from list, see details and donate', () => {
+  xit('You can choose a venue from list, see details and donate', () => {
     const wrapper = mount(<App />)
 
     const viewButton = wrapper.findWhere(

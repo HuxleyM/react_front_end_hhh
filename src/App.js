@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-import Donations from './components/donations'
+import Donations from './components/donation'
 //import DisplayVenue from './components/displayVenue'
 
 export default class App extends Component {
@@ -37,7 +37,6 @@ export default class App extends Component {
                 :
                 <div> loading.... </div>
                }
-               <Donations /> 
           </div>
       );
     }
