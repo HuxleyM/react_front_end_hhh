@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
+import Donation from './donation'
 
 export default class DisplayVenue extends Component {
   constructor(props) {
     super(props);
+       console.dir(props.venueList[0])
+        console.dir(props.venueId)
     this.state = {
       venues: this.props.venueList,
       id: this.props.venueId,
       showConfirmation: false
     }
+    this._onButtonClick = this._onButtonClick.bind(this);
   }
 
 _onButtonClick(){
@@ -18,9 +22,11 @@ _onButtonClick(){
 
 
 render() {
+  console.log(this.state.id);
    const venues = this.state.venues;
    const venueId = this.state.id;
    const venue = undefined;
+
    const list = venues.map((venue, index) =>{
     if (index === venueId) {
       venue = venue
@@ -32,9 +38,10 @@ render() {
       )
     }
    })
+
    return(
      <div>
-     {this.state.showConfirmation ? 
+     {this.state.showConfirmation ?
       <Donation
       venue={venue}/> :
       <div>{list}</div>
