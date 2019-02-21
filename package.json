@@ -27,7 +27,10 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "git-scripts": "^0.2.1",
     "surge": "^0.20.1",
-    "git": { "scripts": { "pre-push": "surge --project ./ --domain http:/damp-measure.surge.sh/" } } 
+    "git": {
+      "scripts": {
+        "pre-push": "surge --project ./ --domain http:/damp-measure.surge.sh/"
+      }
+    }
   }
-
 }
