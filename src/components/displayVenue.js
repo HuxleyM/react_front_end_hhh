@@ -4,9 +4,6 @@ import Donation from './donation'
 export default class DisplayVenue extends Component {
   constructor(props) {
     super(props);
-    console.log(` im in display venues now` )
-      //  console.dir(props.venueList[0])
-      //   console.dir(props.venueId)
     this.state = {
       venues: this.props.venueList,
       id: this.props.venueId,
@@ -23,21 +20,21 @@ _onButtonClick(){
 
 
 render() {
-  // console.log(this.state.id);
+
 
    const venues = this.state.venues;
    const venueId = this.state.id;
    let setVenue = undefined;
 
-   const list = venues.map((venue, index) =>{
+   const list = venues.map((venue, index) => {
     if (index === venueId) {
-      setVenue = venue
-    return (
-      <div key={index}>
-      <p>{setVenue.name} {setVenue.address} </p>
-      <button onClick={this._onButtonClick}> Donate </button>
-      </div>
-      )
+        setVenue = venue
+        return (
+          <div key={index}>
+          <p>{setVenue.name} {setVenue.address} </p>
+          <button onClick={this._onButtonClick}> Donate </button>
+          </div>
+        )
     }
    })
 
