@@ -11,7 +11,6 @@ export default class App extends Component {
     }
 
    componentDidMount() {
-     // const that = this;
      fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues')
     .then((response) => {
       return response.json()

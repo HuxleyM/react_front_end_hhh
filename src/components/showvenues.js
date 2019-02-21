@@ -4,6 +4,7 @@ import DisplayVenue from './displayVenue'
 export default class ShowVenues extends Component {
   constructor (props){
     super(props);
+    console.log(` im in show venues now`)
     this.state = {
       venues : this.props.venueList,
       showVenue : false,
@@ -26,6 +27,7 @@ export default class ShowVenues extends Component {
 
 
   render() {
+    console.log(` im in show venues now ${this.state.venues}`)
     const venues = this.state.venues;
     const id = this.state.venueId
 

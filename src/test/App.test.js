@@ -42,7 +42,7 @@ describe('App js shouls say Keep Ahead', ()=>{
       it('should render ShowVenues div if venues array contains data', () => {
         var dummy = mountWrapper
         dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
-        expect(dummy.find('li').first().text()).toBe('dummy name dummy address')
+        expect(dummy.find('li').first().text()).toBe(' dummy name dummy address')
       })
     })
   })
