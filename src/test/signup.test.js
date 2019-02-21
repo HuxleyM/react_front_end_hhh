@@ -16,11 +16,16 @@ describe('Sign up', () => {
     expect(wrapper.contains('Venue Name')).toBe(true)
   })
 
-  it('the form can take an email', () => {
-    expect(wrapper.contains("Email")).toBe(true)
+  it('the form can take an address', () => {
+    expect(wrapper.contains('Venue Address')).toBe(true)
   })
 
+  it('the form can take an email', () => {
+    expect(wrapper.contains('Email')).toBe(true)
+  })
 
-
+  it('the form can take an password', () => {
+    expect(wrapper.contains('Password')).toBe(true)
+  })
 
 })

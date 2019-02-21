@@ -25,7 +25,7 @@ const DonationForm = ( {handleForm }) =>{
 
       </form>
     )
-  
+
 }
 
 export default DonationForm
