@@ -24,6 +24,9 @@
   ],
   "devDependencies": {
     "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.9.1"
-  }
+    "enzyme-adapter-react-16": "^1.9.1",
+    "git-scripts": "^0.2.1",
+    "surge": "^0.20.1"
+  },
+  "devDependencies": { "surge": "latest", "git-scripts": "0.2.1" }, "git": { "scripts": { "pre-push": "surge --project ./ --domain http://humdrum-ship.surge.sh/" } } 
 }
