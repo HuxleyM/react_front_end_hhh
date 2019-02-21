@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import DonationForm from './donationsForm';
 
 export default class Donation extends Component {
@@ -10,8 +11,7 @@ export default class Donation extends Component {
     }
   }
 
-  handleform = (event) => {
-    event.preventDefault();
+  handleForm = (event) => {
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
@@ -19,16 +19,23 @@ export default class Donation extends Component {
   }
 
   sendDonation = (amount, passphrase) => {
-    let venue = this.state.venue['id']
-    const body = JSON.stringify({ amount: amount, passphrase:passphrase})
+    let venue = this.state.venue.id;
+    // const body = JSON.stringify({ amount: amount, passphrase: passphrase })
+    console.log(amount);
 
-    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue}/donations`,{
+    axios({
       method: 'POST',
-      headers:{
-        'Content-Type': 'application/json'
+      url: `http://localhost:5000/api/v1/venues/1/donations`,
+      data: {
+        amount: amount,
+        passphrase: passphrase
       },
-      body: body
-    }).then((res)=>{return res.json()})
+      headers:{
+        'Content-Type': 'text/plain'
+      }
+    })
+      .then((res)=>{
+      return res.json()})
     .then((res)=>{
       console.log('********')
       console.log(res)
@@ -53,7 +60,7 @@ export default class Donation extends Component {
         <div>
           <h1>FORM</h1>
           <DonationForm
-          handleform={this.handleform}
+          handleForm={this.handleForm}
           />
         </div>
         :
@@ -62,3 +69,5 @@ export default class Donation extends Component {
     )
   }
 }
+
+// https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue}/donations

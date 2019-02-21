@@ -25,14 +25,14 @@ render() {
   console.log(this.state.id);
    const venues = this.state.venues;
    const venueId = this.state.id;
-   const venue = undefined;
+   let setVenue = undefined;
 
    const list = venues.map((venue, index) =>{
     if (index === venueId) {
-      venue = venue
+      setVenue = venue
     return (
       <div key={index}>
-      <p>{venue.name} {venue.address} </p>
+      <p>{setVenue.name} {setVenue.address} </p>
       <button onClick={this._onButtonClick}> Donate </button>
       </div>
       )
@@ -43,7 +43,7 @@ render() {
      <div>
      {this.state.showConfirmation ?
       <Donation
-      venue={venue}/> :
+      venue={setVenue}/> :
       <div>{list}</div>
     } </div>
    )
