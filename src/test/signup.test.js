@@ -13,9 +13,13 @@ describe('Sign up', () => {
   });
 
   it('the form can take a venuename', () => {
-    console.log(wrapper.find(<form></form>))
-    expect(wrapper.contains("venuename")).toBeTruthy()
+    expect(wrapper.contains('Venue Name')).toBe(true)
   })
+
+  it('the form can take an email', () => {
+    expect(wrapper.contains("Email")).toBe(true)
+  })
+
 
 
 
