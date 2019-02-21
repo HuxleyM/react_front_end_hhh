@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import DonationForm from './donationsForm';
 
 export default class Donation extends Component {
@@ -19,22 +18,17 @@ export default class Donation extends Component {
   }
 
   sendDonation = (amount, passphrase) => {
-    let venue = this.state.venue.id;
-    // const body = JSON.stringify({ amount: amount, passphrase: passphrase })
-    console.log(amount);
+    // let venue = this.state.venue.id;
+    const body = JSON.stringify({ donation: {amount: amount, passphrase: passphrase} })
 
-    axios({
+    fetch(`http://localhost:5000/api/v1/venues/1/donations`,{
       method: 'POST',
-      url: `http://localhost:5000/api/v1/venues/1/donations`,
-      data: {
-        amount: amount,
-        passphrase: passphrase
-      },
       headers:{
-        'Content-Type': 'text/plain'
-      }
-    })
-      .then((res)=>{
+        'Content-Type': 'application/json'
+      },
+      body: body
+    }).then((res)=>{
+      console.log("yes");
       return res.json()})
     .then((res)=>{
       console.log('********')
