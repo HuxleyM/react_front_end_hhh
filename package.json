@@ -30,7 +30,7 @@
   },
   "git" : {
     "scripts": {
-      "pre-push": "npm build && surge --project ./build --domain http:/damp-measure.surge.sh/"
+      "pre-push": "npm run-scripts build && surge --project ./build --domain http:/keepAhead.surge.sh"
     }
   }
 }
