@@ -30,7 +30,7 @@
   },
   "git" : {
     "scripts": {
-      "pre-push": "npm run-script build && surge --project ./ --domain http:/keepAhead.surge.sh"
+      "pre-push": "npm run-script build && surge --project ./build --domain http:/keepAhead.surge.sh"
     }
   }
 }
