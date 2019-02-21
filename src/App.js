@@ -27,6 +27,7 @@ export default class App extends Component {
     const { venues } = this.state;
       return (
           <div className="App">
+          <div className="signup"><button>Sign Up</button></div>
               <h1>Keep Ahead</h1>
               {(venues.length > 0) ?
                 <ShowVenues

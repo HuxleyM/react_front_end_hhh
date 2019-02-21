@@ -45,4 +45,10 @@ describe('App js shouls say Keep Ahead', ()=>{
         expect(dummy.find('li').first().text()).toEqual('dummy name dummy address')
       })
     })
+
+    describe('Sign up', () => {
+      it('renders a signup button', () => {
+      expect(renderWrapper.find('button').text()).toBe('Sign Up')
+      })
+    })
   })

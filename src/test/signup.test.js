@@ -12,4 +12,6 @@ describe('Sign up', () => {
     expect(wrapper.find(<form></form>)).toBeTruthy();
   });
 
+  
+
 })
