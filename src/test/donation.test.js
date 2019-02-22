@@ -24,5 +24,5 @@ describe('Donation', () => {
     expect(wrapper.find('div h1').text()).toBe('FORM');
   })
 
-  
+
 })
