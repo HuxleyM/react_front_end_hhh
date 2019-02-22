@@ -3,21 +3,46 @@ import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 
 
-describe('App js shouls say hello world', ()=>{
+describe('App js shouls say Keep Ahead', ()=>{
+    let renderWrapper
+    let wrapper
+    let mountWrapper
 
-    const renderWrapper = render(< App/>)
-
-    it('should say hello', ()=>{
-        expect(renderWrapper.find('div h1').text()).toBe('Hello, React!')
+    beforeEach(() => {
+      renderWrapper = render(< App/>)
+      wrapper = shallow(< App/>)
+      mountWrapper = mount(< App/>)
     })
 
-    const wrapper = shallow(< App/>)
+    it('should display the app name', ()=>{
+        expect(renderWrapper.find('div h1').text()).toBe('Keep Ahead')
+    })
 
     it('should say hello', ()=>{
         expect(
             wrapper.containsMatchingElement(
-                <h1>Hello, React!</h1>
+                <h1>Keep Ahead</h1>
             )
         ).toBeTruthy()
     })
-})
+
+
+
+    describe('Show Venues', () => {
+      it('should render loading div if no values present', ()=> {
+        var dummy = mountWrapper
+        dummy.setState( { venues: [] } )
+        expect(
+          dummy.containsMatchingElement(
+            <div> loading.... </div>
+          )
+        ).toBeTruthy()
+      })
+
+      it('should render ShowVenues div if venues array contains data', () => {
+        var dummy = mountWrapper
+        dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
+        expect(dummy.find('li').first().text()).toBe(' dummy name dummy address')
+      })
+    })
+  })
