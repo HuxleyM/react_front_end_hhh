@@ -15,7 +15,7 @@ export default class Donation extends Component {
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
-    //this.updateState(amount, passphrase)
+
   }
 
   sendDonation = (amount, passphrase) => {
@@ -32,12 +32,8 @@ export default class Donation extends Component {
       console.log("yes");
       return res.json()})
     .then((res)=>{
-      // console.log('********')
-      // console.log(res)
-      // console.log(res.status)
     })
-
-    }
+  }
 
 
   render () {
