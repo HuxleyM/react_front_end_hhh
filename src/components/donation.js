@@ -15,7 +15,6 @@ export default class Donation extends Component {
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
-    //this.updateState(amount, passphrase)
   }
 
   sendDonation = (amount, passphrase) => {
@@ -30,19 +29,10 @@ export default class Donation extends Component {
       body: body
     }).then((res)=>{return res.json()})
     .then((res)=>{
-      console.log('********')
-      console.log(res)
-      console.log(res.status)
     })
 
     }
 
-
-  // updateState = (amount, passphrase) => {
-  //   this.setState({
-  //     donation : [{amount : amount, passphrase : passphrase }]
-  //   })
-  // }
 
   render () {
     const { donation } = this.state;

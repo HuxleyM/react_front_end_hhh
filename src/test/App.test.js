@@ -18,14 +18,13 @@ describe('App js should say Keep Ahead', ()=>{
         expect(renderWrapper.find('div h1').text()).toBe('Keep Ahead')
     })
 
-    it('should say hello', ()=>{
+    it('should say Keep Ahead', ()=>{
         expect(
             wrapper.containsMatchingElement(
                 <h1>Keep Ahead</h1>
             )
         ).toBeTruthy()
     })
-
 
 
     describe('Show Venues', () => {
@@ -44,5 +43,12 @@ describe('App js should say Keep Ahead', ()=>{
         dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
         expect(dummy.find('li').first().text()).toBe(' dummy name dummy address')
       })
-    })
+
+      it('should render an individual venue details when you click on it', () => {
+        var dummy = mountWrapper
+        const venue = wrapper.find('button.view').first()
+        dummy.setState( {venues:[{ name:'second name', address:'second address' }]} )
+        venue.simulate('click')
+
+      })
   })
