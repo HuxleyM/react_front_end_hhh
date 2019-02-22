@@ -8,9 +8,10 @@ export default class Donation extends Component {
       venue: props.venue,
       donation: []
     }
+    this.handleForm = this.handleForm.bind(this);
   }
 
-  handleform = (event) => {
+  handleForm = (event) => {
     event.preventDefault();
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
@@ -53,7 +54,7 @@ export default class Donation extends Component {
         <div>
           <h1>FORM</h1>
           <DonationForm
-          handleform={this.handleform}
+          handleForm={this.handleForm}
           />
         </div>
         :

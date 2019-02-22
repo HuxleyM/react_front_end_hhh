@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 const DonationForm = ( {handleForm }) =>{
-
     return(
       <form onSubmit ={ handleForm }>
         <label>Amount</label>

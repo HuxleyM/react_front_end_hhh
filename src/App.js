@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
 
@@ -30,10 +29,7 @@ export default class App extends Component {
           <div className="signup"><button>Sign Up</button></div>
               <h1>Keep Ahead</h1>
               {(venues.length > 0) ?
-                <ShowVenues
-                venueList={venues}
-                />
-                :
+                <ShowVenues venueList={venues}/> :
                 <div> loading.... </div>
                }
           </div>
