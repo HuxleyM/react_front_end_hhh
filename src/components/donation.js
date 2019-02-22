@@ -11,6 +11,7 @@ export default class Donation extends Component {
   }
 
   handleForm = (event) => {
+    event.preventDefault()
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
@@ -18,10 +19,10 @@ export default class Donation extends Component {
   }
 
   sendDonation = (amount, passphrase) => {
-    // let venue = this.state.venue.id;
+    let venue = this.state.venue.id;
     const body = JSON.stringify({ donation: {amount: amount, passphrase: passphrase} })
 
-    fetch(`http://localhost:5000/api/v1/venues/1/donations`,{
+    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue}/donations`,{
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
