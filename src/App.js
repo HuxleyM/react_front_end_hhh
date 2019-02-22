@@ -1,12 +1,13 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-
+import Signup from './components/signup'
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      venues: []
+      venues: [],
+      signup: false
       }
     }
 
@@ -21,11 +22,22 @@ export default class App extends Component {
       })
     })
   }
+
+  _onSignupClick(){
+    this.setState({
+      signup: true
+    })
+  }
   render() {
 
     const { venues } = this.state;
-      return (
+      return (<div>
+        { this.state.signup ?
+          < Signup /> :
           <div className="App">
+          <div className="signup">
+          <button onClick={()=> {this._onSignupClick()}}>Sign Up</button>
+          </div>
               <h1>Keep Ahead</h1>
               {(venues.length > 0) ?
                 <ShowVenues
@@ -35,6 +47,7 @@ export default class App extends Component {
                 <div> loading.... </div>
                }
           </div>
+        }</div>
       );
     }
 }

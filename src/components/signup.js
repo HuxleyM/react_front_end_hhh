@@ -13,6 +13,26 @@ export default class SignUp extends Component {
     //this.sendVenue(name, address, email, password)
   }
 
+  sendVenue = (name, address, email, password) => {
+   // let venue = this.state.venue.id;
+   const body = JSON.stringify({ venue: {name: name, address: address, email: email, password: password} })
+
+   fetch(`http://localhost:5000/api/v1/venues`,{
+     method: 'POST',
+     headers:{
+       'Content-Type': 'application/json'
+     },
+     body: body
+   }).then((res)=>{
+     console.log("yes");
+     return res.json()})
+   .then((res)=>{
+     console.log(res);
+
+   })
+
+   }
+
   render(){
     return (<form onSubmit ={ this.handleform }>
     <label>Venue Name</label>
@@ -47,8 +67,9 @@ export default class SignUp extends Component {
       id='submit_form'
       type="submit"
       value="Submit"
-      ></input>
+    ></input>
     </form>
+    
   )
   }
 }
