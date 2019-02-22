@@ -8,7 +8,6 @@ export default class Donation extends Component {
       venue: props.venue,
       donation: []
     }
-    this.handleForm = this.handleForm.bind(this);
   }
 
   handleForm = (event) => {

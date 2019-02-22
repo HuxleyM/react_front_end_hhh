@@ -7,7 +7,7 @@ export default class ShowVenues extends Component {
     this.state = {
       venues : this.props.venueList,
       showVenue : false,
-      venueId: -1
+      venue: null
     };
     this._onButtonClick = this._onButtonClick.bind(this);
   }
@@ -20,14 +20,14 @@ export default class ShowVenues extends Component {
 
   _updateIndex(index){
     this.setState({
-      venueId: index
+      venue: this.state.venues[index]
     })
   }
 
 
   render() {
     const venues = this.state.venues;
-    const id = this.state.venueId
+    const venue = this.state.venue
 
     const list = venues.map((venue, index) => {
       return (
@@ -41,8 +41,7 @@ export default class ShowVenues extends Component {
     return (<div>
     { this.state.showVenue ?
      <DisplayVenue
-     venueList={venues}
-     venueId={id}/> :
+     venue={venue}/> :
       <ul>{list}</ul>
     }</ div>)
 
