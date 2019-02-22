@@ -3,11 +3,13 @@ import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
 
 export default class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       venues: []
       }
+
     }
 
    componentDidMount() {
