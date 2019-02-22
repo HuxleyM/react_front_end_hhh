@@ -4,47 +4,33 @@ import Donation from './donation'
 export default class DisplayVenue extends Component {
   constructor(props) {
     super(props);
-       console.dir(props.venueList[0])
-        console.dir(props.venueId)
     this.state = {
-      venues: this.props.venueList,
-      id: this.props.venueId,
-      showConfirmation: false
+      venue: this.props.venue,
+      confirmDonation: false
     }
     this._onButtonClick = this._onButtonClick.bind(this);
   }
 
 _onButtonClick(){
   this.setState({
-    showConfirmation: true
+    confirmDonation: true
   })
 }
 
 
 render() {
-  console.log(this.state.id);
-   const venues = this.state.venues;
-   const venueId = this.state.id;
-   const venue = undefined;
 
-   const list = venues.map((venue, index) =>{
-    if (index === venueId) {
-      venue = venue
-    return (
-      <div key={index}>
-      <p>{venue.name} {venue.address} </p>
-      <button onClick={this._onButtonClick}> Donate </button>
-      </div>
-      )
-    }
-   })
+   const venue = this.state.venue;
 
    return(
      <div>
-     {this.state.showConfirmation ?
+     {this.state.confirmDonation ?
       <Donation
       venue={venue}/> :
-      <div>{list}</div>
+      <div>
+        <p>{venue.name} {venue.address} </p>
+        <button onClick={this._onButtonClick}> Donate </button>  
+      </div>
     } </div>
    )
  }
