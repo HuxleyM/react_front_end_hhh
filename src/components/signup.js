@@ -25,12 +25,18 @@ export default class SignUp extends Component {
      },
      body: body
    }).then((res)=>{
-     console.log(res.body);
-     //return res.json();
+     return res.json();
     })
    .then((res)=>{
-     console.log(res);
+     this.setVenue(res);
    })
+  }
+
+  setVenue = (res) => {
+    this.setState({
+      venueSignedIn : res
+    })
+    console.log(this.state.venueSignedIn)
   }
 
   render(){
