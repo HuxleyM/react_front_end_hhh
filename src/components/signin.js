@@ -11,7 +11,7 @@ export default class SignIn extends Component {
 
   sendVenue = (email, password) => {
 
-   const body = JSON.stringify({ venue: { email: email, password: password} })
+   const body = JSON.stringify({ type: 'signin', venue: { email: email, password: password} })
 
    fetch(`http://localhost:5000/api/v1/venues`,{
      method: 'POST',
