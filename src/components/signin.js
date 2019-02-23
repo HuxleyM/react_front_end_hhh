@@ -20,12 +20,16 @@ export default class SignIn extends Component {
      },
      body: body
    }).then((res)=>{
-     console.log("yes");
      return res.json()})
    .then((res)=>{
-     console.log(res);
-
+     this.setVenue(res);
    })
+
+   setVenue = (res) => {
+    this.setState({
+      venueSignedIn : res
+    })
+  }
 
    }
 
