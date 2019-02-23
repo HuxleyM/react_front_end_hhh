@@ -6,16 +6,15 @@ export default class Donation extends Component {
     super (props);
     this.state = {
       venue: props.venue,
-      donation: []
+      donation: false
     }
   }
 
   handleForm = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
-    //this.updateState(amount, passphrase)
   }
 
   sendDonation = (amount, passphrase) => {
@@ -29,23 +28,30 @@ export default class Donation extends Component {
       },
       body: body
     }).then((res)=>{
-      console.log("yes");
       return res.json()})
-    .then((res)=>{
-      // console.log('********')
-      // console.log(res)
-      // console.log(res.status)
+    .then(()=>{
+      this.updateState()
     })
+  }
 
-    }
+  updateState() {
+    this.setState({
+      donation: true
+    })
+  }
 
+  resetState() {
+    this.setState({
+      donation: false
+    })
+  }
 
   render () {
     const { donation } = this.state;
 
     return (
       <div>
-        {(donation.length < 1) ?
+        {(donation === false) ?
         <div>
           <h1>FORM</h1>
           <DonationForm
@@ -53,10 +59,14 @@ export default class Donation extends Component {
           />
         </div>
         :
-        <h1>Thanks for your donation</h1>}
+        <div>
+          <h1>Thanks for your donation</h1>
+          <p>
+          <button onClick={()=>{this.resetState()}}>Home</button>
+          </p>
+        </div>
+        }
       </div>
     )
   }
 }
-
-// https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue}/donations
