@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5"
   },
   "scripts": {
@@ -28,7 +29,7 @@
     "git-scripts": "^0.2.1",
     "surge": "^0.20.1"
   },
-  "git" : {
+  "git": {
     "scripts": {
       "pre-push": "npm run-script build && surge --project ./build --domain http:/keepAhead.surge.sh"
     }

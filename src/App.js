@@ -1,7 +1,7 @@
-
 import React, {Component} from 'react';
-import ShowVenues from './components/showvenues'
-import Signup from './components/signup'
+import ShowVenues from './components/showvenues';
+import Signup from './components/signup';
+import NavBar from './components/navbar';
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -31,7 +31,9 @@ export default class App extends Component {
   render() {
 
     const { venues } = this.state;
-      return (<div>
+      return (
+        <div>
+        <NavBar />
         { this.state.signup ?
           < Signup /> :
           <div className="App">
@@ -41,7 +43,7 @@ export default class App extends Component {
               <h1>Keep Ahead</h1>
               {(venues.length > 0) ?
                 <ShowVenues
-                venueList={venues}
+                venues={venues}
                 />
                 :
                 <div> loading.... </div>

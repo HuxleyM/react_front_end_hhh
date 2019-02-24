@@ -5,10 +5,9 @@ export default class ShowVenues extends Component {
   constructor (props){
     super(props);
     this.state = {
-      venues : this.props.venueList,
+      venue: null
     };
   }
-
 
   _updateVenue(venue){
     this.setState({
@@ -16,13 +15,12 @@ export default class ShowVenues extends Component {
     })
   }
 
-
   render() {
 
-    const venues = this.state.venues;
-   
+    const { venues } = this.props;
 
-    const list = venues.map((venue, index) => {
+
+    const list = venues && venues.map((venue, index) => {
       return (
         <p key={index}>
           <li> {venue.name} {venue.address}</li>
@@ -31,13 +29,16 @@ export default class ShowVenues extends Component {
       )
     })
 
-    return (<div>
-    { this.state.venue ?
-        < DisplayVenue
-        venue={this.state.venue}
-        /> :
-       <ul>{list}</ul>
-    }</ div>)
-
+    return (
+      <div>
+        { this.state.venue ?
+            <DisplayVenue
+            venue={this.state.venue}
+            venues={venues}
+            /> :
+           <ul>{list}</ul>
+        }
+      </ div>
+    )
   }
 }
