@@ -40,12 +40,6 @@ export default class Donation extends Component {
     })
   }
 
-  resetState() {
-    this.setState({
-      donation: false
-    })
-  }
-
   render () {
     const { donation } = this.state;
 
@@ -61,9 +55,7 @@ export default class Donation extends Component {
         :
         <div>
           <h1>Thanks for your donation</h1>
-          <p>
-          <button onClick={()=>{this.resetState()}}>Home</button>
-          </p>
+          <button onClick={() => {window.location = '/'}}>Home</button>
         </div>
         }
       </div>
