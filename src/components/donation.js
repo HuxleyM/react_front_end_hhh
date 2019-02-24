@@ -55,7 +55,7 @@ export default class Donation extends Component {
         :
         <div>
           <h1>Thanks for your donation</h1>
-          <button onClick={() => {window.location = '/'}}>Home</button>
+
         </div>
         }
       </div>

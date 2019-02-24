@@ -1,0 +1,16 @@
+.showvenues__link{
+  background: #9bc1ff;
+  display: block;
+  max-width: 5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+.showvenues__link > a {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues';
 import Signup from './components/signup';
-import NavBar from './components/navbar';
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -33,7 +32,6 @@ export default class App extends Component {
     const { venues } = this.state;
       return (
         <div>
-        <NavBar />
         { this.state.signup ?
           < Signup /> :
           <div className="App">

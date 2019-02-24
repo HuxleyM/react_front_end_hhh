@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import DisplayVenue from './displayVenue'
+import { Link } from 'react-router-dom';
+import DisplayVenue from './displayVenue';
+import './showvenues.css'
 
 export default class ShowVenues extends Component {
   constructor (props){
@@ -16,28 +18,26 @@ export default class ShowVenues extends Component {
   }
 
   render() {
-
     const { venues } = this.props;
-
-
-    const list = venues && venues.map((venue, index) => {
-      return (
-        <p key={index}>
-          <li> {venue.name} {venue.address}</li>
-          <button onClick={()=>{this._updateVenue(venue)}}>view</button>
-        </p>
-      )
-    })
 
     return (
       <div>
-        { this.state.venue ?
-            <DisplayVenue
-            venue={this.state.venue}
-            venues={venues}
-            /> :
-           <ul>{list}</ul>
-        }
+        {venues && venues.map(venue => {
+          return (
+            <p key={venue.id}>
+              <li> {venue.name} {venue.address}
+              <div className="showvenues__link">
+                <Link to={{
+                  pathname: '/venues/' + venue.id,
+                  state: {venue: venue}
+                }}>
+                  Click here!
+                </Link>
+              </div>
+              </li>
+            </p>
+          )
+        })}
       </ div>
     )
   }
