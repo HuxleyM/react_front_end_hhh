@@ -15,7 +15,6 @@ export default class Donation extends Component {
     var amount = document.getElementById('amount').value;
     var passphrase = document.getElementById('passphrase').value;
     this.sendDonation(amount, passphrase)
-
   }
 
   sendDonation = (amount, passphrase) => {
@@ -43,10 +42,7 @@ export default class Donation extends Component {
       <div>
         {(donation.length < 1) ?
         <div>
-          <h1>FORM</h1>
-          <DonationForm
-          handleForm={this.handleForm}
-          />
+          <DonationForm handleForm={this.handleForm} venueId={this.state.venue.id} />
         </div>
         :
         <h1>Thanks for your donation</h1>}
