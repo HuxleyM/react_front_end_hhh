@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Donation from './donation'
 
 export default class DisplayVenue extends Component {
@@ -27,7 +28,13 @@ render() {
       venue={venue}/> :
       <div>
         <p>{venue.name} {venue.address} </p>
-        <button onClick={this._onButtonClick}> Donate </button>
+        <Link to={{
+          pathname: '/venues/' + venue.id + '/donation',
+          state: {venue: venue}
+        }}>
+          Donate
+          </Link>
+
       </div>
     } </div>
    )

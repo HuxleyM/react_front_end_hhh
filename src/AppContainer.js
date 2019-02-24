@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import App from './App';
 import NavBar from './components/navbar';
 import SignUp from './components/signup';
+import Donation from './components/donation';
 import DisplayVenue from './components/displayVenue';
 
 export default class AppContainer extends Component {
@@ -12,7 +13,8 @@ export default class AppContainer extends Component {
         <div>
         <NavBar />
           <Route path='/signup' component={SignUp} />
-          <Route path='/venues/:venueId' component={DisplayVenue}/>
+          <Route exact path='/venues/:venueId/donation' component={Donation}/>
+          <Route exact path='/venues/:venueId' component={DisplayVenue}/>
           <Route exact path='/' component={App}/>
         </div>
       </BrowserRouter>
