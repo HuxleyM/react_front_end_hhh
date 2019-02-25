@@ -14,7 +14,8 @@ export default class Checkout extends Component {
       venue: props.venue,
       name: props.name,
       description: props.description,
-      amount: 5
+      amount: 5,
+      confirmation: false
     }
   }
 
@@ -40,6 +41,7 @@ export default class Checkout extends Component {
       body: body
     }).then(() => {
       alert('Payment Successful');
+      this.updateState();
     }).catch(() => {
       alert('Payment Error');
     });
@@ -57,29 +59,46 @@ export default class Checkout extends Component {
     })
   }
 
+  updateState() {
+   this.setState({
+     confirmation: true
+   })
+ }
+
   render () {
+    const { confirmation } = this.state;
+    
     return (
       <div>
-      <input
-        type="text"
-        id="amount"
-        placeholder = 'amount'
-        onChange={this.changeAmount}
+          {(confirmation === false) ?
+        <div>
+        <input
+          type="text"
+          id="amount"
+          placeholder="amount"
+          onChange={this.changeAmount}
         ></input>
-      <input
-        type="text"
-        id="passphrase"
-        placeholder = 'rhinounicorn'
-        onChange={this.changePassphrase}
+        <input
+          type="text"
+          id="passphrase"
+          placeholder = "rhinounicorn"
+          onChange={this.changePassphrase}
         ></input>
-      <StripeCheckout
-        name={this.state.name}
-        description={this.state.description}
-        amount={fromGbpToPence(this.state.amount)}
-        token={this.onToken}
-        currency={CURRENCY}
-        stripeKey={STRIPE_PUBLISHABLE}
-      />
+        <StripeCheckout
+          name={this.state.name}
+          description={this.state.description}
+          amount={fromGbpToPence(this.state.amount)}
+          token={this.onToken}
+          currency={CURRENCY}
+          stripeKey={STRIPE_PUBLISHABLE}
+        />
+        </div>
+        :
+        <div>
+          <h1>Thanks for your donation</h1>
+          <button onClick={() => {window.location = '/'}}>Home</button>
+        </div>
+        }
       </div>
     )
   }
