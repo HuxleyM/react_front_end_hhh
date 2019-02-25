@@ -36,7 +36,7 @@ export default class VenueProfile extends Component {
     const { venue } = this.state;
     const { donations } = this.state;
     const openDonations = donations.filter(donation => donation.redeemed !== true)
-
+    
     const list = openDonations.map(donation => <DonationStatus donation={donation} venue={venue} />)
 
     return(

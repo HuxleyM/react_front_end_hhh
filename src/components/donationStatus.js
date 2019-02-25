@@ -33,10 +33,10 @@ export default class DonationStatus extends Component {
     const { donation } = this.props;
 
     return !redeemed && (
-        <p>
-          <li>{donation.amount} {donation.passphrase}</li>
-          <button onClick={this.redeemDonation}>Redeem</button>
-        </p>
+      <p>
+        <li>{donation.amount} {donation.passphrase}</li>
+        <button onClick={this.redeemDonation}>Redeem</button>
+      </p>
     )
   }
 }
