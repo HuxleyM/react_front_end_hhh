@@ -77,3 +77,8 @@ The app consists of < 4 > components each responsible for a small part of the ap
 ## donationsForm
 
 - A form which takes the donation amount, recepient name and passphrase and feeds it back to the donation component to send the data to the rails API.
+
+Resources: 
+
+- React and Stripe: https://www.robinwieruch.de/react-express-stripe-payment/
+- React and Rails: https://stripe.com/docs/checkout/rails
