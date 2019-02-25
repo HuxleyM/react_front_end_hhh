@@ -14,22 +14,13 @@ export default class Donation extends Component {
     const { donation } = this.state;
 
     return (
-      <div>
-        {(donation === false) ?
-        <div>
-          <Checkout
-                name={'Help those who are less fortunate'}
-                description={'Donate today!'}
-                venue={this.state.venue}
-              />
-        </div>
-        :
-        <div>
-          <h1>Thanks for your donation</h1>
-          <button onClick={() => {window.location = '/'}}>Home</button>
-        </div>
-        }
-      </div>
+    <div>
+      <Checkout
+            name={'Help those who are less fortunate'}
+            description={'Donate today!'}
+            venue={this.state.venue}
+          />
+    </div>
     )
   }
 }
