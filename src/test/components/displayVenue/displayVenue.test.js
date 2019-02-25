@@ -8,7 +8,7 @@ describe('Display venues', () => {
 
   beforeEach(() => {
       let mockvenue = {venue:[{ name:'Crisis Cafe', address:'Commercial Street' }]}
-      wrapper = render(< DisplayVenue
+      wrapper = mount(< DisplayVenue
       venue={mockvenue}
        />)
     })
@@ -17,7 +17,9 @@ describe('Display venues', () => {
     expect(wrapper.venue).toEqual(mockvenue)
   })
 
+  it('should change confirmDonation to true on clicking donate', () => {
+    const component = wrapper.instance()
+    component._onButtonClick()
+    expect(component.state.confirmDonation).toBe(true)
+  })
 })
-
-
-  

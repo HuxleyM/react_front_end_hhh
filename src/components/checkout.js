@@ -67,11 +67,12 @@ export default class Checkout extends Component {
 
   render () {
     const { confirmation } = this.state;
-    
+
     return (
       <div>
           {(confirmation === false) ?
         <div>
+        <label> FORM </label>
         <input
           type="text"
           id="amount"

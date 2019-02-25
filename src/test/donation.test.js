@@ -20,9 +20,4 @@ describe('Donation', () => {
     expect(wrapper.state('venue')).toEqual(venue)
   })
 
-  it('renders a form if donation length < 1', () => {
-    expect(wrapper.find('div h1').text()).toBe('FORM');
-  })
-
-
 })
