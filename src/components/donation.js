@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import DonationForm from './donationsForm';
 
 export default class Donation extends Component {

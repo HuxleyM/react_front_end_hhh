@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-import DisplayVenue from './displayVenue';
 import './showvenues.css'
 
 export default class ShowVenues extends Component {
