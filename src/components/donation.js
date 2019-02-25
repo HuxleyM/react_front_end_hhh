@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import DonationForm from './donationsForm';
 
 export default class Donation extends Component {
@@ -18,7 +19,7 @@ export default class Donation extends Component {
   }
 
   sendDonation = (amount, passphrase) => {
-    let venue = this.state.venue.id;
+    let venue = this.props.location.state.venue.id;
     const body = JSON.stringify({ donation: {amount: amount, passphrase: passphrase} })
 
     fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue}/donations`,{
