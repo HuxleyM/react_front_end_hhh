@@ -38,21 +38,15 @@ export default class VenueProfile extends Component {
   render() {
     const { venue } = this.state.venue;
     const { donations } = this.state.donations;
-
-    {this.state.donations ?
-
-
-    let list = donations.map((donation) => {
+    const list = donations.map((donation) => {
       return(
         <div className="donationList">
           <p key={donation.id}>
             <li>{donation.amount} {donation.passphrase}</li>
           </p>
-        </div> :
-        <div> Loading ...</div>
+        </div>
       )
     })
-  }
 
     return(
       <div>
