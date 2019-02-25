@@ -30,7 +30,7 @@ export default class App extends Component {
     })
   }
   render() {
-
+// refactor to render sub render functions - see blog post !?!?
     const { venues } = this.state;
       return (<div>
         { this.state.signup ?

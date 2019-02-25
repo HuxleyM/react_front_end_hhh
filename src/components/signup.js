@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
-
+import SignUpForm from './signupForm'
 
 export default class SignUp extends Component {
 
-  handleform = (event) => {
+  handleForm = (event) => {
+    console.log('Hi');
     event.preventDefault();
     var name = document.getElementById('venuename').value;
     var address = document.getElementById('venueaddress').value;
     var email = document.getElementById('venueEmail').value;
-    var password = document.getElementById('venuePassword').value;
+    var password = document.getElementById('password').value;
+    console.log(name, address, email, password);
     this.sendVenue(name, address, email, password)
   }
 
   sendVenue = (name, address, email, password) => {
-
+    console.log(name, address, email, password)
    const body = JSON.stringify({ venue: {name: name, address: address, email: email, password: password}})
 
    console.log(body)
@@ -34,42 +36,12 @@ export default class SignUp extends Component {
   }
 
   render(){
-    return (<form onSubmit ={ this.handleform }>
-    <label>Venue Name</label>
-    <input
-    type='text'
-    id='venuename'
-    placeholder='Crisis Cafe'
-    ></input>
-
-    <label>Venue Address</label>
-    <input
-    type='text'
-    id='venueaddress'
-    placeholder='10 Commercial Street'
-    ></input> 
-
-    <label>Email</label>
-    <input
-    type='text'
-    id='venueEmail'
-    placeholder='venue@gmail.com'
-    ></input>
-
-    <label>Password</label>
-    <input
-    type='text'
-    id='venuePassword'
-    placeholder='qwe123'
-    ></input>
-
-    <input
-      id='submit_form'
-      type="submit"
-      value="Submit"
-    ></input>
-    </form>
-    
-  )
-  }
+    return (
+      <div>
+      <SignUpForm
+      handleForm={this.handleForm}
+      />
+      </div>
+    )
+}
 }
