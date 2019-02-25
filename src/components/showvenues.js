@@ -9,18 +9,16 @@ export default class ShowVenues extends Component {
     };
   }
 
-
   _updateVenue(venue){
     this.setState({
       venue: venue
     })
   }
 
-
   render() {
 
     const venues = this.state.venues;
-   
+
     const list = venues.map((venue, index) => {
       return (
         <p key={index}>
@@ -31,12 +29,7 @@ export default class ShowVenues extends Component {
     })
 
     return (<div>
-    { this.state.venue ?
-        < DisplayVenue
-        venue={this.state.venue}
-        /> :
-       <ul>{list}</ul>
-    }</ div>)
+    { this.state.venue ? < DisplayVenue venue={this.state.venue} /> : <ul>{list}</ul> }</ div>)
 
   }
 }
