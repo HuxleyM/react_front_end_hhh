@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
 import Signup from './components/signup'
+import VenueProfile from './components/venueProfile'
 // import SignIn from './components/signin'
 export default class App extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ export default class App extends Component {
 
     const { venues } = this.state;
       return (<div>
+        <VenueProfile />
         { this.state.signup ?
           < Signup /> :
           <div className="App">

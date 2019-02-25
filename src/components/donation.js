@@ -5,13 +5,11 @@ export default class Donation extends Component {
   constructor (props){
     super (props);
     this.state = {
-      venue: props.venue,
-      donation: false
+      venue: props.venue
     }
   }
 
   render () {
-    const { donation } = this.state;
 
     return (
     <div>
