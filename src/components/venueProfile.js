@@ -20,7 +20,7 @@ export default class VenueProfile extends Component {
 
   componentDidMount() {
     const venueId = this.state.venue.id;
-    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`)
+    fetch(`http://localhost:3000/api/v1/venues/${venueId}/donations`)
     .then((response) => {
       return response.json()
     })
@@ -31,16 +31,39 @@ export default class VenueProfile extends Component {
     })
   }
 
+  // https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations
+
+  redeemDonation = id => {
+
+    const body = JSON.stringify({ redeemed: true })
+
+    const venueId = this.state.venue.id;
+    const donationId = id;
+
+    fetch(`http://localhost:3000/api/v1/venues/${venueId}/donations/${donationId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: body
+    })
+    .then((response) => {
+      return response.json()
+    })
+
+  }
+
   render() {
     const { venue } = this.state;
     const { donations } = this.state;
+    const openDonations = donations.filter(donation => donation.redeemed !== true)
 
-    const list = donations.map((donation) => {
+    const list = openDonations.map((donation) => {
       return(
         <div className="donationList">
           <p key={donation.id}>
             <li>{donation.amount} {donation.passphrase}</li>
-            <button onClick={()=> {}}>Redeem</button>
+            <button onClick={()=> {this.redeemDonation(donation.id)}}>Redeem</button>
           </p>
         </div>
       )
