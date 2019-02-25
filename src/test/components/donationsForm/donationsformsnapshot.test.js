@@ -1,11 +1,11 @@
 import React, { Component } from 'React';
 import { create } from "react-test-renderer";
-import SignupForm from '../../../components/signupForm'
+import DonationForm from '../../../components/donationsForm'
 
 
-describe("SignupForm", () => {
+describe("Donations Form", () => {
   test("it matches the snapshot", () => {
-    const component = create(<SignupForm />);
+    const component = create(<DonationForm />);
     expect(component.toJSON()).toMatchSnapshot();
   });
 });
