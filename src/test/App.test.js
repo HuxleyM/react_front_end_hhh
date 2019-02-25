@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 
 
-describe('App js shouls say Keep Ahead', ()=>{
+describe('App js should say Keep Ahead', ()=>{
     let renderWrapper
     let wrapper
     let mountWrapper
@@ -18,14 +18,13 @@ describe('App js shouls say Keep Ahead', ()=>{
         expect(renderWrapper.find('div h1').text()).toBe('Keep Ahead')
     })
 
-    it('should say hello', ()=>{
+    it('should say Keep Ahead', ()=>{
         expect(
             wrapper.containsMatchingElement(
                 <h1>Keep Ahead</h1>
             )
         ).toBeTruthy()
     })
-
 
 
     describe('Show Venues', () => {
@@ -39,7 +38,7 @@ describe('App js shouls say Keep Ahead', ()=>{
         ).toBeTruthy()
       })
 
-      xit('should render ShowVenues div if venues array contains data', () => {
+      it('should render ShowVenues div if venues array contains data', () => {
         var dummy = mountWrapper
         dummy.setState( {venues:[{ name:'dummy name', address:'dummy address' }]} )
         expect(dummy.find('li').first().text()).toEqual('dummy name dummy address')
@@ -50,5 +49,5 @@ describe('App js shouls say Keep Ahead', ()=>{
       it('renders a signup button', () => {
       expect(renderWrapper.find('button').text()).toBe('Sign Up')
       })
-    })
   })
+})
