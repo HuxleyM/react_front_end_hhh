@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-stripe-checkout": "^2.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=2000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -26,11 +28,11 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "git-scripts": "^0.2.1",
-    "surge": "^0.20.1",
-    "git": {
-      "scripts": {
-        "pre-push": "surge --project ./ --domain http:/damp-measure.surge.sh/"
-      }
+    "surge": "^0.20.1"
+  },
+  "git": {
+    "scripts": {
+      "pre-push": "npm run-script build && surge --project ./build --domain http:/keepAhead.surge.sh"
     }
   }
 }

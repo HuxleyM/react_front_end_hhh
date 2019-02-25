@@ -1,18 +1,18 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-//import DisplayVenue from './components/displayVenue'
-
+import Signup from './components/signup'
+// import SignIn from './components/signin'
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      venues: []
+      venues: [],
+      signup: false
       }
     }
 
    componentDidMount() {
-     // const that = this;
      fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues')
     .then((response) => {
       return response.json()
@@ -23,19 +23,32 @@ export default class App extends Component {
       })
     })
   }
+
+  _onSignupClick(){
+    this.setState({
+      signup: true
+    })
+  }
   render() {
 
     const { venues } = this.state;
-      return (
+      return (<div>
+        { this.state.signup ?
+          < Signup /> :
           <div className="App">
+          <div className="signup">
+          <button onClick={()=> {this._onSignupClick()}}>Sign Up</button>
+          </div>
               <h1>Keep Ahead</h1>
               {(venues.length > 0) ?
                 <ShowVenues
                 venueList={venues}
-                /> :
+                />
+                :
                 <div> loading.... </div>
                }
           </div>
+        }</div>
       );
     }
 }
