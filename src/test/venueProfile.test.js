@@ -7,10 +7,7 @@ const venue ={
   "name":"Crisis Cafe",
   "address":"Commercial Street",
   "created_at":"2019-02-19T16:41:39.478Z",
-  "updated_at":"2019-02-19T16:41:39.478Z",
-  "donations": {
-    amount: 20, passphrase: "rhinounicorn"
-  }
+  "updated_at":"2019-02-19T16:41:39.478Z"
 }
 
 describe('VenueProfile', () => {
@@ -30,7 +27,7 @@ describe('VenueProfile', () => {
   })
 
   it('renders a form if donation length < 1', () => {
-    expect(wrapper.find('div h1').text()).toBe('FORM');
+    expect(wrapper.find('div h1').text()).toBe('Crisis Cafe');
   })
 
 })

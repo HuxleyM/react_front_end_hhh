@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const venue ={
+const venue1 ={
   id: 1,
   name: "Crisis Cafe",
   address: "Commercial Street",
@@ -13,8 +13,8 @@ export default class VenueProfile extends Component {
     super(props);
     this.state ={
       signedIn: true,
-      venue: venue,
-      donations: null
+      venue: venue1,
+      donations: []
     }
   }
 
@@ -25,25 +25,22 @@ export default class VenueProfile extends Component {
       return response.json()
     })
     .then((response) => {
-      this.updateState(response)
+      this.setState({
+       donations: response
+     })
     })
   }
 
-  updateState(response) {
-    this.setState({
-     donations: response
-   })
-  }
-
   render() {
-    const { venue } = this.state.venue;
-    const { donations } = this.state.donations;
+    const { venue } = this.state;
+    const { donations } = this.state;
 
     const list = donations.map((donation) => {
       return(
         <div className="donationList">
           <p key={donation.id}>
             <li>{donation.amount} {donation.passphrase}</li>
+            <button onClick={()=> {}}>Redeem</button>
           </p>
         </div>
       )
@@ -52,7 +49,7 @@ export default class VenueProfile extends Component {
     return(
       <div>
         <h1>{venue.name}</h1>
-        <ul>list</ul>
+        <ul>{list}</ul>
       </div>
     )
   }
