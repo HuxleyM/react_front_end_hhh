@@ -6,7 +6,7 @@ export default class Donation extends Component {
     super (props);
     this.state = {
       venue: props.venue,
-      donation: []
+      donation: false
     }
   }
 
@@ -15,7 +15,7 @@ export default class Donation extends Component {
 
     return (
       <div>
-        {(donation.length < 1) ?
+        {(donation === false) ?
         <div>
           <Checkout
                 name={'Help those who are less fortunate'}
@@ -24,7 +24,11 @@ export default class Donation extends Component {
               />
         </div>
         :
-        <h1>Thanks for your donation</h1>}
+        <div>
+          <h1>Thanks for your donation</h1>
+          <button onClick={() => {window.location = '/'}}>Home</button>
+        </div>
+        }
       </div>
     )
   }
