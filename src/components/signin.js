@@ -7,13 +7,14 @@ export default class SignIn extends Component {
     event.preventDefault();
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    this.sendVenue(email, password)
   }
 
   sendVenue = (email, password) => {
 
    const body = JSON.stringify({ type: 'signin', venue: { email: email, password: password} })
 
-   fetch(`http://localhost:5000/api/v1/venues`,{
+   fetch(`http://localhost:3000/api/v1/venues`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
@@ -24,14 +25,15 @@ export default class SignIn extends Component {
    .then((res)=>{
      this.setVenue(res);
    })
+  }
 
    setVenue = (res) => {
     this.setState({
-      venueSignedIn : res
+      venueSignedIn : res[0]
     })
+    console.log(this.state.venueSignedIn)
   }
 
-   }
 
   render(){
     return (<form onSubmit ={ this.handleform }>
@@ -42,7 +44,7 @@ export default class SignIn extends Component {
     placeholder='crisis@gmail.com'
     ></input>
 
-    <label>password</label>
+    <label>Password</label>
     <input
     type='password'
     id='password'

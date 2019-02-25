@@ -18,7 +18,7 @@ export default class SignUp extends Component {
 
 
  
-   fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues`,{
+   fetch(`http://localhost:3000/api/v1/venues`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
