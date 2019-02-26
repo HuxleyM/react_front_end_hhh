@@ -16,7 +16,6 @@ export default class ShowVenues extends Component {
   }
 
   render() {
-    console.dir(this.state)
     const venues = this.state.venues;
 
     const list = venues.map((venue, index) => {

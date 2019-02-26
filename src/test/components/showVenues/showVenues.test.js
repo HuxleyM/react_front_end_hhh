@@ -11,7 +11,8 @@ describe("Show Venues", () => {
       address: '13 test street',
       email: 'test@test.com',
       password: 'testing'}]}
-      />)
+      />,
+      { attachTo: document.body })
   })
 
   it('renders the venues given to it', () => {
@@ -27,11 +28,15 @@ describe("Show Venues", () => {
   })
 
   it('onClick should setState of showVenues.state.venue', () => {
-    let rapper = wrapper.instance()
-    rapper._updateVenue()
-  //  rapper.update()
-    expect(rapper.state.venue).toBeTruthy()
+    wrapper.instance()._updateVenue = jest.fn()
+    wrapper.find('button').simulate('click')
+    expect(wrapper.instance()._updateVenue).toHaveBeenCalled();
+  })
 
+  it('creates a new state when you view a venue', ()=> {
+    wrapper.instance().setState = jest.fn()
+    wrapper.find('button').simulate('click')
+    expect(wrapper.instance().setState).toHaveBeenCalled()
   })
 
 })
