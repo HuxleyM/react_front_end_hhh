@@ -11,6 +11,7 @@
   },
   "scripts": {
     "start": "PORT=2000 react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -28,10 +29,5 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "git-scripts": "^0.2.1",
     "surge": "^0.20.1"
-  },
-  "git": {
-    "scripts": {
-      "pre-push": "npm run-script build && surge --project ./build --domain http:/keepAhead.surge.sh"
-    }
   }
 }
