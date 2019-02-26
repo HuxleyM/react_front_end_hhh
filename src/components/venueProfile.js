@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
 import DonationStatus from './donationStatus';
+=======
+import FullDonationList from './fullDonationList'
+>>>>>>> bc21400319a619f2c6e7db466a2d58a9ee36e3d8
 
 const venue1 ={
   id: 1,
@@ -35,6 +39,7 @@ export default class VenueProfile extends Component {
   render() {
     const { venue } = this.state;
     const { donations } = this.state;
+<<<<<<< HEAD
     const openDonations = donations.filter(donation => donation.redeemed !== true)
 
     const list = openDonations.map(donation => <DonationStatus donation={donation} venue={venue} />)
@@ -43,6 +48,27 @@ export default class VenueProfile extends Component {
       <div className="donationList">
         <h1>{venue.name}</h1>
         <ul>{list}</ul>
+=======
+    const list = donations && donations.map((donation) => {
+      return (
+        <div className="donationList">
+          <p key={donation.id}>
+            <li>{donation.amount} {donation.passphrase}</li>
+          </p>
+        </div>
+      )
+    })
+
+    return(
+      <div>
+        <div id="div1">
+          <h1>{venue.name}</h1>
+          <ul>list</ul>
+        </div>
+        <div id="div2">
+          <FullDonationList donations={donations}/>
+        </div>
+>>>>>>> bc21400319a619f2c6e7db466a2d58a9ee36e3d8
       </div>
     )
   }
