@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import DonationStatus from './donationStatus';
+import FullDonationList from './fullDonationList'
 
 const venue1 ={
   id: 1,
@@ -15,7 +16,8 @@ export default class VenueProfile extends Component {
     this.state ={
       signedIn: true,
       venue: venue1,
-      donations: []
+      donations: [],
+      showDonationHistory: false
     }
   }
 
@@ -32,17 +34,38 @@ export default class VenueProfile extends Component {
     })
   }
 
+  toggleHistory = () => {
+    this.setState({
+      showDonationHistory: !this.state.showDonationHistory
+    })
+  }
+
   render() {
     const { venue } = this.state;
-    const { donations } = this.state;
+    const { donations, showDonationHistory } = this.state;
     const openDonations = donations.filter(donation => donation.redeemed !== true)
+    let toggle = this.state.showDonationHistory ? 'Hide' : 'Show'
 
     const list = openDonations.map(donation => <DonationStatus donation={donation} venue={venue} />)
 
+
     return(
-      <div className="donationList">
-        <h1>{venue.name}</h1>
-        <ul>{list}</ul>
+      <div>
+        <div id="openDonations">
+          <h1>{venue.name}</h1>
+          <ul>{list}</ul>
+        </div>
+
+        <div id="togglehistory">
+          <button onClick={this.toggleHistory}>{toggle} Donation History</button>
+        </div>
+
+        { showDonationHistory && (
+          <div id="donationHistory">
+            <FullDonationList donations={donations}/>
+          </div>
+        )
+        }
       </div>
     )
   }
