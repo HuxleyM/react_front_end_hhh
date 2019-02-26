@@ -19,7 +19,6 @@ export default class VenueProfile extends Component {
       donations: [],
       showDonationHistory: false
     }
-    this.onClick = this.toggleHistory.bind(this);
   }
 
   componentDidMount() {
