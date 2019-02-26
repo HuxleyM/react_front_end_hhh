@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import DonationStatus from './donationStatus';
-=======
 import FullDonationList from './fullDonationList'
->>>>>>> bc21400319a619f2c6e7db466a2d58a9ee36e3d8
 
 const venue1 ={
   id: 1,
@@ -19,8 +16,10 @@ export default class VenueProfile extends Component {
     this.state ={
       signedIn: true,
       venue: venue1,
-      donations: []
+      donations: [],
+      showDonationHistory: false
     }
+    this.onClick = this.toggleHistory.bind(this);
   }
 
   componentDidMount() {
@@ -36,39 +35,38 @@ export default class VenueProfile extends Component {
     })
   }
 
+  toggleHistory = () => {
+    this.setState({
+      showDonationHistory: !this.state.showDonationHistory
+    })
+  }
+
   render() {
     const { venue } = this.state;
-    const { donations } = this.state;
-<<<<<<< HEAD
+    const { donations, showDonationHistory } = this.state;
     const openDonations = donations.filter(donation => donation.redeemed !== true)
+    let toggle = this.state.showDonationHistory ? 'Hide' : 'Show'
 
     const list = openDonations.map(donation => <DonationStatus donation={donation} venue={venue} />)
 
-    return(
-      <div className="donationList">
-        <h1>{venue.name}</h1>
-        <ul>{list}</ul>
-=======
-    const list = donations && donations.map((donation) => {
-      return (
-        <div className="donationList">
-          <p key={donation.id}>
-            <li>{donation.amount} {donation.passphrase}</li>
-          </p>
-        </div>
-      )
-    })
 
     return(
       <div>
-        <div id="div1">
+        <div id="openDonations">
           <h1>{venue.name}</h1>
-          <ul>list</ul>
+          <ul>{list}</ul>
         </div>
-        <div id="div2">
-          <FullDonationList donations={donations}/>
+
+        <div id="togglehistory">
+          <button onClick={this.toggleHistory}>{toggle} Donation History</button>
         </div>
->>>>>>> bc21400319a619f2c6e7db466a2d58a9ee36e3d8
+
+        { showDonationHistory && (
+          <div id="donationHistory">
+            <FullDonationList donations={donations}/>
+          </div>
+        )
+        }
       </div>
     )
   }

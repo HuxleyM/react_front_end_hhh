@@ -34,6 +34,7 @@ export default class App extends Component {
 
     const { venues } = this.state;
       return (<div>
+        <VenueProfile />
         { this.state.signup ?
           <Signup /> :
           <div className="App">
