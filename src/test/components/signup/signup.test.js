@@ -12,7 +12,7 @@ describe("Sign up", () => {
 })
 
 describe("Sign up", () => {
-  
+
   let wrapper
   let userinfo
 
@@ -23,23 +23,44 @@ describe("Sign up", () => {
       email: 'c@cc.com',
       password: 'password123'
     }
-    wrapper = mount(<SignUp {...userinfo} />)
+    wrapper = mount(<SignUp/>,
+    { attachTo: document.body })
   })
 
   it('renders a form (sanity check)', () =>{
     expect(wrapper.contains('Venue Name')).toBe(true)
   })
 
-  it("takes a new user's details through handleForm", () => {
-    
+  it('Calls handleForm on submit click', () => {
+    const input =  { name: 'Crisis Cafe',
+          address: 'Commercial Street',
+          email: 'c@cc.com',
+          password: 'password123'
+        }
 
-    wrapper.find('input.submitForm').simulate("submit", { preventDefault() {} });
-    wrapper.update();
-    expect(wrapper.sendVenue).toHaveBeenCalled()
+    wrapper.instance().sendVenue = jest.fn()
+
+    const venueNameInput = wrapper.find('input.venuename')
+    venueNameInput.value = input.name
+
+    const venueAddressInput = wrapper.find('input.venueaddress')
+    venueAddressInput.value = input.address
+
+    const venueEmailInput = wrapper.find('input.venueEmail')
+    venueEmailInput.value = input.email
+
+    const venuePasswordInput = wrapper.find('input.password')
+    venuePasswordInput.value = input.password
+
+    wrapper.find('input.submitForm').simulate('submit');
+
+    expect(wrapper.instance().sendVenue).toHaveBeenCalled()
+
   })
 
 
-  
+
+
 })
 
 
@@ -60,5 +81,3 @@ describe("Sign up", () => {
 //         expect(testValues.handleSubmit).toBeCalledWith({username: testValues.username, password: testValues.password});
 //     });
 // });
-
-
