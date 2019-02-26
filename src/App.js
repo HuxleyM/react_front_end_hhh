@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
 import Signup from './components/signup'
+
 import SignIn from './components/signin'
 
 export default class App extends Component {
@@ -58,16 +59,15 @@ export default class App extends Component {
           </div> 
           }
 
-
-              <h1>Keep Ahead</h1>
-              {(venues.length > 0) ?
-                <ShowVenues
-                venueList={venues}
-                />
-                :
-                <div> loading.... </div>
-               }
-          </div>
+          <h1>Keep Ahead</h1>
+          {(venues.length > 0) ?
+            <ShowVenues
+            venueList={venues}
+            />
+            :
+            <div> loading.... </div>
+           }
+        </div>
       );
     }
 }
