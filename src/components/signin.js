@@ -12,9 +12,9 @@ export default class SignIn extends Component {
 
   sendVenue = (email, password) => {
 
-   const body = JSON.stringify({ type: 'signin', venue: { email: email, password: password} })
+   const body = JSON.stringify({ venue: { email: email, password: password} })
 
-   fetch(`http://localhost:3000/api/v1/venues`,{
+   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signin`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
@@ -23,10 +23,19 @@ export default class SignIn extends Component {
    }).then((res)=>{
      return res.json()})
    .then((res)=>{
+     this.validSignIn(res)
      this.setVenue(res);
    })
   }
-
+  
+  validSignIn(res){
+    if( res != undefined){
+      this.setVenue(res[0])
+    }
+    else{
+      //error
+    }
+  }
    setVenue = (res) => {
     this.setState({
       venueSignedIn : res[0]
@@ -36,7 +45,9 @@ export default class SignIn extends Component {
 
 
   render(){
-    return (<form onSubmit ={ this.handleform }>
+    return (
+    <div>
+    <form onSubmit ={ this.handleform }>
     <label>Email</label>
     <input
     type='email'
@@ -57,7 +68,7 @@ export default class SignIn extends Component {
       value="Submit"
     ></input>
     </form>
-    
+    </div>
   )
   }
 }

@@ -23,7 +23,7 @@ describe('Sign up', () => {
   describe('it recieves ad sets state to venue object', ()=>{
     
     // it('calls `func` when mounted', () => {
-    //   const wrapper = shallow(<Test />);
+    //git p   const wrapper = shallow(<Test />);
     //   const instance = wrapper.instance();
     //   jest.spyOn(instance, 'func');
     //   instance.componentDidMount();
@@ -39,7 +39,7 @@ describe('Sign up', () => {
     })
  /*
  https://remarkablemark.org/blog/2018/06/13/spyon-react-class-method/*/
- 
+
     it('calls handle form on submit', ()=>{
       const wrapper = mount(<SignIn />);
       const instance = wrapper.instance();
