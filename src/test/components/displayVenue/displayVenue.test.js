@@ -7,10 +7,10 @@ describe('Display venues', () => {
   let mockvenue
 
   beforeEach(() => {
-      let mockvenue = {venue:[{ name:'Crisis Cafe', address:'Commercial Street' }]}
-      wrapper = mount(< DisplayVenue
-      venue={mockvenue}
-       />)
+    let mockvenue = {venue:[{ name:'Crisis Cafe', address:'Commercial Street' }]}
+    wrapper = mount(< DisplayVenue
+    venue={mockvenue}
+     />)
     })
 
   it('should render ShowVenues div if venues array contains data', () => {

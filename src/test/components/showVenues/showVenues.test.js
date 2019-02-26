@@ -1,25 +1,37 @@
 import ShowVenues from '../../../components/showvenues.js'
 import React, {Component} from 'react';
-import { create } from "react-test-renderer";
 import {shallow, mount, render} from 'enzyme'
 
 describe("Show Venues", () => {
-  let mockVenues = {venue:[{ name:'Crisis Cafe', address:'Commercial Street' }]}
-  let wrapper = mount(<ShowVenues
-    venues={mockVenues}
-    />)
-  
-  it('should render ShowVenues div if venues array contains data', () => {
-    expect(wrapper).toBeTruthy()
+  let wrapper
+  beforeEach(() => {
+    console.log('hi')
+    wrapper = mount(<ShowVenues
+      venueList={[{name: 'test',
+      address: '13 test street',
+      email: 'test@test.com',
+      password: 'testing'}]}
+      />)
   })
-  
-console.log("Hello")
+
+  it('renders the venues given to it', () => {
+    expect(wrapper.contains('13 test street')).toBe(true)
+  })
+
+  it('has a button for each venue', () => {
+    expect(wrapper.contains('view')).toBe(true)
+  })
+
+  it('has not got a venue state on render', () => {
+    expect(wrapper.state.venue).toBeUndefined()
+  })
+
   it('onClick should setState of showVenues.state.venue', () => {
-  
-  const component = wrapper.instance()
-  const venueButton = component.find('view').first()
-  venueButton.simulate('click')
-  expect(component.state.venue).toBe('Crisis Cafe')
+    let rapper = wrapper.instance()
+    rapper._updateVenue()
+  //  rapper.update()
+    expect(rapper.state.venue).toBeTruthy()
+
   })
 
 })
