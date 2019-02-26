@@ -1,4 +1,5 @@
 import SignUp from '../../../components/signup.js'
+import SignUpForm from '../../../components/signupForm.js'
 import React, {Component} from 'react';
 import { create } from "react-test-renderer";
 import {shallow, mount, render} from 'enzyme'
@@ -10,30 +11,54 @@ describe("Sign up", () => {
   })
 })
 
-describe('Sign up', () => {
+describe("Sign up", () => {
+  
+  let wrapper
+  let userinfo
 
-  const wrapper = mount(
-    <SignUp/>
-  )
+  beforeEach(() => {
+    const userinfo = {
+      name: 'Crisis Cafe',
+      address: 'Commercial Street',
+      email: 'c@cc.com',
+      password: 'password123'
+    }
+    wrapper = mount(<SignUp {...userinfo} />)
+  })
 
-  it('displays a form to signup with', () => {
-    expect(wrapper.find(<form></form>)).toBeTruthy();
-  });
-
-  it('the form can take a venuename', () => {
+  it('renders a form (sanity check)', () =>{
     expect(wrapper.contains('Venue Name')).toBe(true)
   })
 
-  it('the form can take an address', () => {
-    expect(wrapper.contains('Venue Address')).toBe(true)
+  it("takes a new user's details through handleForm", () => {
+    
+
+    wrapper.find('input.submitForm').simulate("submit", { preventDefault() {} });
+    wrapper.update();
+    expect(wrapper.sendVenue).toHaveBeenCalled()
   })
 
-  it('the form can take an email', () => {
-    expect(wrapper.contains('Email')).toBe(true)
-  })
 
-  it('the form can take an password', () => {
-    expect(wrapper.contains('Password')).toBe(true)
-  })
-
+  
 })
+
+
+// describe('<LogIn />', () => {
+//     const testValues = {
+//         username: 'FOO',
+//         password: 'BAZ',
+//         handleSubmit: jest.fn(),
+//     };
+
+//     it('Submit works', () => {
+
+//         const component = shallow(
+//             <LogIn {...testValues} />
+//         );
+//         component.find('#submitButton').simulate('click');
+//         expect(testValues.handleSubmit).toHaveBeenCalledTimes(1);
+//         expect(testValues.handleSubmit).toBeCalledWith({username: testValues.username, password: testValues.password});
+//     });
+// });
+
+

@@ -31,7 +31,7 @@ const SignUpForm = ( { handleForm }) => {
 			placeholder='qwe123'
 		></input>
 
-		<input
+		<input className="submitForm"
 			id='submit_form'
 			type="submit"
 			value="Submit"

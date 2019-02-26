@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sign up it Matches the snapshot 1`] = `
+exports[`Sign up Form it Matches the snapshot 1`] = `
 <div>
   <form
     onSubmit={[Function]}

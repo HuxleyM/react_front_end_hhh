@@ -35,6 +35,7 @@ exports[`SignupForm it matches the snapshot 1`] = `
     type="password"
   />
   <input
+    className="submitForm"
     id="submit_form"
     type="submit"
     value="Submit"
