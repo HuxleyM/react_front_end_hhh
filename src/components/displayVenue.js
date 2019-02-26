@@ -29,7 +29,7 @@ render() {
       venue={venue}/> :
       <div>
         <p>{venue.name} {venue.address} </p>
-        <button onClick={this._onButtonClick}> Donate </button>  
+        <button className='venue' onClick={this._onButtonClick}> Donate </button>
       </div>
     } </div>
    )
