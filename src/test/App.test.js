@@ -48,7 +48,26 @@ describe('App js shouls say Keep Ahead', ()=>{
 
     describe('Sign up', () => {
       it('renders a signup button', () => {
-      expect(renderWrapper.find('button').text()).toBe('Sign Up')
+      expect(renderWrapper.find('#sign_up_button').text()).toBe('Sign Up')
+      })
+
+      it('should not display if user is signed up', () => {
+        wrapper.find('#sign_up_button').simulate('click');
+        expect(wrapper.state('signup')).toEqual(true)
+        //expect(renderWrapper.find('#sign_up_button').text()).toBeFalsy()
+      })
+    })
+
+
+    describe('Sign in', () => {
+      it('renders a signin button', () => {
+        expect(renderWrapper.find('#sign_in_button').text()).toBe('Sign In')
+      })
+
+      it('should not display if user is signed in', () => {
+        wrapper.find('#sign_in_button').simulate('click');
+        expect(wrapper.state('signin')).toEqual(true)
+        //expect(renderWrapper.find('#sign_in_button').text()).toBeFalsy()
       })
     })
   })
