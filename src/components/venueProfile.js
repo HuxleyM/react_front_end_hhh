@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import FullDonationList from './fullDonationList'
 
 const venue ={
   id: 1,
@@ -36,10 +37,10 @@ export default class VenueProfile extends Component {
   }
 
   render() {
-    const { venue } = this.state.venue;
-    const { donations } = this.state.donations;
-    const list = donations.map((donation) => {
-      return(
+    const { venue } = this.state;
+    const { donations } = this.state;
+    const list = donations && donations.map((donation) => {
+      return (
         <div className="donationList">
           <p key={donation.id}>
             <li>{donation.amount} {donation.passphrase}</li>
@@ -50,8 +51,13 @@ export default class VenueProfile extends Component {
 
     return(
       <div>
-        <h1>{venue.name}</h1>
-        <ul>list</ul>
+        <div id="div1">
+          <h1>{venue.name}</h1>
+          <ul>list</ul>
+        </div>
+        <div id="div2">
+          <FullDonationList donations={donations}/>
+        </div>
       </div>
     )
   }
