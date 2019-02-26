@@ -20,8 +20,8 @@ export default class VenueProfile extends Component {
   }
 
   componentDidMount() {
-    const venueId = this.state.venue.id;
-    fetch(`http://localhost:3000/api/v1/venues/${venueId}/donations`)
+    const { venue } = this.state;
+    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue.id}/donations`)
     .then((response) => {
       return response.json()
     })
@@ -36,7 +36,7 @@ export default class VenueProfile extends Component {
     const { venue } = this.state;
     const { donations } = this.state;
     const openDonations = donations.filter(donation => donation.redeemed !== true)
-    
+
     const list = openDonations.map(donation => <DonationStatus donation={donation} venue={venue} />)
 
     return(

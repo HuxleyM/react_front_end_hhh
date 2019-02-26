@@ -35,7 +35,7 @@ export default class App extends Component {
     const { venues } = this.state;
       return (<div>
         { this.state.signup ?
-          < Signup /> :
+          <Signup /> :
           <div className="App">
           <div className="signup">
           <button onClick={()=> {this._onSignupClick()}}>Sign Up</button>

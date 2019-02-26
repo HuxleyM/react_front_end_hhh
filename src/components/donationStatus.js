@@ -12,7 +12,7 @@ export default class DonationStatus extends Component {
     const { donation, venue } = this.props;
     const body = JSON.stringify({ redeemed: true })
 
-    fetch(`http://localhost:3000/api/v1/venues/${venue.id}/donations/${donation.id}`, {
+    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue.id}/donations/${donation.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
