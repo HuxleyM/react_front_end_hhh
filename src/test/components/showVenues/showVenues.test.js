@@ -27,13 +27,13 @@ describe("Show Venues", () => {
     expect(wrapper.state.venue).toBeUndefined()
   })
 
-  it('onClick should setState of showVenues.state.venue', () => {
+  it('onClick calls the update venue back', () => {
     wrapper.instance()._updateVenue = jest.fn()
     wrapper.find('button').simulate('click')
     expect(wrapper.instance()._updateVenue).toHaveBeenCalled();
   })
 
-  it('creates a new state when you view a venue', ()=> {
+  it('onClick calls the setState back', ()=> {
     wrapper.instance().setState = jest.fn()
     wrapper.find('button').simulate('click')
     expect(wrapper.instance().setState).toHaveBeenCalled()
