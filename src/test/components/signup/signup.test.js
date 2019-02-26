@@ -17,7 +17,7 @@ describe("Sign up", () => {
   let userinfo
 
   beforeEach(() => {
-    const userinfo = {
+      userinfo = {
       name: 'Crisis Cafe',
       address: 'Commercial Street',
       email: 'c@cc.com',
@@ -32,25 +32,20 @@ describe("Sign up", () => {
   })
 
   it('Calls handleForm on submit click', () => {
-    const input =  { name: 'Crisis Cafe',
-          address: 'Commercial Street',
-          email: 'c@cc.com',
-          password: 'password123'
-        }
 
     wrapper.instance().sendVenue = jest.fn()
 
     const venueNameInput = wrapper.find('input.venuename')
-    venueNameInput.value = input.name
+    venueNameInput.value = userinfo.name
 
     const venueAddressInput = wrapper.find('input.venueaddress')
-    venueAddressInput.value = input.address
+    venueAddressInput.value = userinfo.address
 
     const venueEmailInput = wrapper.find('input.venueEmail')
-    venueEmailInput.value = input.email
+    venueEmailInput.value = userinfo.email
 
     const venuePasswordInput = wrapper.find('input.password')
-    venuePasswordInput.value = input.password
+    venuePasswordInput.value = userinfo.password
 
     wrapper.find('input.submitForm').simulate('submit');
 
