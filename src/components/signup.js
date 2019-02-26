@@ -13,21 +13,30 @@ export default class SignUp extends Component {
   }
 
   sendVenue = (name, address, email, password) => {
-   const body = JSON.stringify({ venue: {name: name, address: address, email: email, password: password}})
 
-    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues`,{
+   const body = JSON.stringify({  venue: {name: name, address: address, email: email, password: password}})
+
+
+ 
+   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
      },
      body: body
    }).then((res)=>{
-     
-     //return res.json();
+     return res.json();
     })
    .then((res)=>{
-     
+     this.setVenue(res);
    })
+  }
+
+  setVenue = (res) => {
+    this.setState({
+      venueSignedIn : res
+    })
+    console.log(this.state.venueSignedIn)
   }
 
   render(){
