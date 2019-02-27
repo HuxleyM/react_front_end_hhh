@@ -24,7 +24,7 @@ export default class ShowVenues extends Component {
     const list = venues.map((venue, index) => {
       return (
         <p key={index}>
-          <li> {venue.name} {venue.address}</li>
+          <li> {venue.name} {venue.address} {venue.distance}km</li>
           <button onClick={()=>{this._updateVenue(venue)}}>view</button>
         </p>
       )
