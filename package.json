@@ -28,7 +28,7 @@
     "git-scripts": "^0.2.1",
     "surge": "^0.20.1"
   },
-  "git" : {
+  "git": {
     "scripts": {
       "pre-push": "npm run-script build && surge --project ./build --domain http:/keepAhead.surge.sh"
     }
