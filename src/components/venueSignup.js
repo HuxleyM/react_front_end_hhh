@@ -43,8 +43,7 @@ export default class SignUp extends Component {
     this.setState({
       venueSignedIn : res
     })
-    console.log(this.state.venueSignedIn);
-    // this.props.action();
+    this.props.action(res);
   }
 
   render(){

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import VenueProfile from './venueProfile'
 
 
 export default class SignIn extends Component {
@@ -48,7 +47,7 @@ export default class SignIn extends Component {
     this.setState({
       venueSignedIn : res
     })
-    this.props.action();
+    this.props.action(res);
     console.log(this.state.venueSignedIn)
   }
 
@@ -58,7 +57,6 @@ export default class SignIn extends Component {
 
     return (
       <div>
-      { (venueSignedIn < 1) ?
         <div>
         <form onSubmit ={ this.handleform }>
         <label>Email</label>
@@ -82,9 +80,6 @@ export default class SignIn extends Component {
         ></input>
         </form>
         </div>
-        :
-        <VenueProfile venue={venueSignedIn} />
-      }
       </div>
     )
   }

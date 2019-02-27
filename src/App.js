@@ -38,7 +38,7 @@ export default class App extends Component {
         <div>
         {
           venuePortal ?
-          <button onClick={() => {window.location = '/'}}>Home</button>
+          null
           :
           <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
         }

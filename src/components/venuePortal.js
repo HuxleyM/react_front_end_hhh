@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SignUp from './venueSignup'
 import SignIn from './venueSignin'
+import VenueProfile from './venueProfile'
+
 
 export default class VenuePortal extends Component {
   constructor() {
@@ -8,7 +10,8 @@ export default class VenuePortal extends Component {
     this.state = {
       signup: false,
       signin: false,
-      loggedIn: false
+      loggedIn: false,
+      venue: null
       }
       this.handler = this.handler.bind(this);
     }
@@ -31,20 +34,21 @@ export default class VenuePortal extends Component {
       this.setState({
         signup: false,
         signin: false,
-        loggedIn: false
+        loggedIn: false,
+        veune: null
       })
     }
 
-    handler() {
-    console.log();
+    handler(res) {
     this.setState({
-        loggedIn: true
+        loggedIn: true,
+        venue: res
     });
   }
 
     render() {
   // refactor to render sub render functions - see blog post !?!?
-      const { venues, signup, signin, loggedIn } = this.state;
+      const { venue, signup, signin, loggedIn } = this.state;
 
       const loginButtons = (
         <div id="login_buttons">
@@ -69,10 +73,16 @@ export default class VenuePortal extends Component {
       const logoutButton = (
         <button id='log_out_button' onClick={()=> { this._onLogoutClick() } }>Log out</button>
       )
-        return (<div>
 
-          {loggedIn ? logoutButton : loginButtons}
+      return (
+        <div>
+          <div>
+            {loggedIn ? logoutButton : loginButtons}
           </div>
-        );
-      }
-  }
+          <div>
+          {loggedIn ? <VenueProfile venue={venue} /> : null}
+          </div>
+        </div>
+      );
+    }
+}
