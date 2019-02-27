@@ -47,7 +47,7 @@ export default class VenuePortal extends Component {
   }
 
     render() {
-  // refactor to render sub render functions - see blog post !?!?
+      
       const { venue, signup, signin, loggedIn } = this.state;
 
       const loginButtons = (

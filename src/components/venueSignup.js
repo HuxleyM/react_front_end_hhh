@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
 import SignUpForm from './signupForm';
-import VenueProfile from './venueProfile';
 
 export default class SignUp extends Component {
-  constructor() {
-    super();
-    this.state = {
-      venueSignedIn : null
-    }
-  }
 
   handleForm = (event) => {
     event.preventDefault();
@@ -21,44 +14,33 @@ export default class SignUp extends Component {
 
   sendVenue = (name, address, email, password) => {
 
-   const body = JSON.stringify({ venue: { name: name, address: address, email: email, password: password }})
+  const body = JSON.stringify({ venue: { name: name, address: address, email: email, password: password }})
 
-
-
-   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
-     method: 'POST',
-     headers:{
-       'Content-Type': 'application/json'
-     },
-     body: body
-   }).then((res)=>{
-     return res.json();
+  fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
+    method: 'POST',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body: body
+    }).then((res)=>{
+      return res.json();
     })
-   .then((res)=>{
-     this.setVenue(res);
-   })
+      .then((res)=>{
+      this.setVenue(res);
+    })
   }
 
   setVenue = (res) => {
-    this.setState({
-      venueSignedIn : res
-    })
     this.props.action(res);
   }
 
   render(){
-    const { venueSignedIn } = this.state;
 
     return (
       <div>
-
-      { (venueSignedIn < 1) ?
         <SignUpForm
         handleForm={this.handleForm}
         />
-        :
-        <VenueProfile venue={venueSignedIn} />
-      }
       </div>
     )
   }

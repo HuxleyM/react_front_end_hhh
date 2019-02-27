@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 
-
 export default class SignIn extends Component {
-  constructor() {
-    super();
-    this.state = {
-      venueSignedIn : null
-    }
-  }
 
   handleform = (event) => {
     event.preventDefault();
@@ -44,16 +37,11 @@ export default class SignIn extends Component {
   }
 
    setVenue = (res) => {
-    this.setState({
-      venueSignedIn : res
-    })
     this.props.action(res);
-    console.log(this.state.venueSignedIn)
   }
 
 
   render(){
-    const { venueSignedIn } = this.state;
 
     return (
       <div>
