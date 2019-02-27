@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import SignUp from './venueSignup'
 import SignIn from './venueSignin'
-import VenueProfile from './venueProfile'
 
 export default class VenuePortal extends Component {
   constructor() {
@@ -11,6 +10,7 @@ export default class VenuePortal extends Component {
       signin: false,
       loggedIn: false
       }
+      this.handler = this.handler.bind(this);
     }
 
     _onSignupClick(){
@@ -27,6 +27,13 @@ export default class VenuePortal extends Component {
       })
     }
 
+    handler(param1) {
+    console.log(param1);
+    this.setState({
+        loggedIn: true
+    });
+  }
+
     render() {
   // refactor to render sub render functions - see blog post !?!?
       const { venues, signup, signin, loggedIn } = this.state;
@@ -34,7 +41,7 @@ export default class VenuePortal extends Component {
       const loginButtons = (
         <div id="login_buttons">
         { signup ?
-         < SignUp /> :
+         < SignUp action={this.handler} /> :
          <div>
            <div className="signup"></div>
            <button id='sign_up_button' onClick={()=> { this._onSignupClick() } }>Sign Up</button>
@@ -42,7 +49,7 @@ export default class VenuePortal extends Component {
          }
 
        { signin ?
-         < SignIn /> :
+         < SignIn action={this.handler} /> :
          <div>
            <div className="signup"></div>
            <button id='sign_in_button'onClick={()=> { this._onSignInClick() } }>Sign In</button>
@@ -52,9 +59,7 @@ export default class VenuePortal extends Component {
       )
         return (<div>
 
-          <h3>Venue signin/signup</h3>
-
-          {loggedIn ? <VenueProfile  /> : loginButtons}
+          {loggedIn ? <h3>LOGOUT</h3> : loginButtons}
           </div>
         );
       }

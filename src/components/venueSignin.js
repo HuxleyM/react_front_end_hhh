@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import VenueProfile from './venueProfile'
 
 
 export default class SignIn extends Component {
@@ -20,7 +21,7 @@ export default class SignIn extends Component {
 
    const body = JSON.stringify({ venue: { email: email, password: password} })
 
-   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signin`,{
+   fetch(`http://localhost:3000/signin`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
@@ -46,36 +47,44 @@ export default class SignIn extends Component {
     this.setState({
       venueSignedIn : res[0]
     })
+    this.props.action()
     console.log(this.state.venueSignedIn)
   }
 
 
   render(){
+    const { venueSignedIn } = this.state;
+
     return (
-    <div>
-    <form onSubmit ={ this.handleform }>
-    <label>Email</label>
-    <input
-    type='email'
-    id='email'
-    placeholder='crisis@gmail.com'
-    ></input>
+      <div>
+      { (venueSignedIn < 1) ?
+        <div>
+        <form onSubmit ={ this.handleform }>
+        <label>Email</label>
+        <input
+        type='email'
+        id='email'
+        placeholder='crisis@gmail.com'
+        ></input>
 
-    <label>Password</label>
-    <input
-    type='password'
-    id='password'
-    placeholder=''
-    ></input>
+        <label>Password</label>
+        <input
+        type='password'
+        id='password'
+        placeholder=''
+        ></input>
 
-    <input
-      id='submit_form'
-      type="submit"
-      value="Submit"
-    ></input>
-    </form>
-    </div>
-
-  )
+        <input
+          id='submit_form'
+          type="submit"
+          value="Submit"
+        ></input>
+        </form>
+        </div>
+        :
+        <VenueProfile venue={venueSignedIn} />
+      }
+      </div>
+    )
   }
 }

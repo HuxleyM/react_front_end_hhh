@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import SignUpForm from './signupForm'
+import SignUpForm from './signupForm';
+import VenueProfile from './venueProfile';
 
 export default class SignUp extends Component {
   constructor() {
@@ -43,14 +44,22 @@ export default class SignUp extends Component {
       venueSignedIn : res
     })
     console.log(this.state.venueSignedIn)
+    this.props.action()
   }
 
   render(){
+    const { venueSignedIn } = this.state;
+
     return (
       <div>
+
+      { (venueSignedIn < 1) ?
         <SignUpForm
         handleForm={this.handleForm}
         />
+        :
+        <VenueProfile venue={venueSignedIn} />
+      }
       </div>
     )
   }

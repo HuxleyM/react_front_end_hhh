@@ -2,28 +2,19 @@ import React, {Component} from 'react';
 import DonationStatus from './donationStatus';
 import FullDonationList from './fullDonationList'
 
-const venue1 ={
-  id: 1,
-  name: "Crisis Cafe",
-  address: "Commercial Street",
-  created_at: "2019-02-19T16:41:39.478Z",
-  updated_at: "2019-02-19T16:41:39.478Z"
-}
-
 export default class VenueProfile extends Component {
   constructor (props){
     super(props);
     this.state ={
       signedIn: true,
-      venue: venue1,
       donations: [],
       showDonationHistory: false
     }
   }
 
   componentDidMount() {
-    const { venue } = this.state;
-    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue.id}/donations`)
+    const { venue } = this.props;
+    fetch(`https://localhost:3000/api/v1/venues/${venue.id}/donations`)
     .then((response) => {
       return response.json()
     })
@@ -41,7 +32,7 @@ export default class VenueProfile extends Component {
   }
 
   render() {
-    const { venue } = this.state;
+    const { venue } = this.props;
     const { donations, showDonationHistory } = this.state;
     const openDonations = donations.filter(donation => donation.redeemed !== true)
     let toggle = this.state.showDonationHistory ? 'Hide' : 'Show'
