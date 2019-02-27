@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import SignUpForm from './signupForm'
 
 export default class SignUp extends Component {
+  constructor() {
+    this.state = {
+      venueSignedIn : null
+    }
+  }
 
   handleForm = (event) => {
     event.preventDefault();
@@ -17,7 +22,7 @@ export default class SignUp extends Component {
    const body = JSON.stringify({  venue: {name: name, address: address, email: email, password: password}})
 
 
- 
+
    fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
      method: 'POST',
      headers:{

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Signup from './components/signup'
+import SignUp from './components/signup'
 import SignIn from './components/signin'
 
-export default class VenuePortal extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -27,9 +27,11 @@ export default class VenuePortal extends Component {
   // refactor to render sub render functions - see blog post !?!?
       const { venues, signup, signin } = this.state;
         return (<div>
+          <h1>Keep Ahead</h1>
+          <h3>Venue signin/signup</h3>
 
            { signup ?
-            < Signup /> :
+            < SignUp /> :
             <div>
               <div className="signup"></div>
               <button id='sign_up_button' onClick={()=> { this._onSignupClick() } }>Sign Up</button>
@@ -43,13 +45,6 @@ export default class VenuePortal extends Component {
               <button id='sign_in_button'onClick={()=> { this._onSignInClick() } }>Sign In</button>
             </div>
             }
-
-            <h1>Keep Ahead</h1>
-            {(venues.length > 0) ?
-              null
-              :
-              <div> loading.... </div>
-             }
           </div>
         );
       }

@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 
 
 export default class SignIn extends Component {
+  constructor() {
+    this.state = {
+      venueSignedIn : null
+    }
+  }
 
   handleform = (event) => {
     event.preventDefault();
@@ -27,9 +32,9 @@ export default class SignIn extends Component {
      this.setVenue(res);
    })
   }
-  
+
   validSignIn(res){
-    if( res != undefined){
+    if( res !== undefined){
       this.setVenue(res[0])
     }
     else{

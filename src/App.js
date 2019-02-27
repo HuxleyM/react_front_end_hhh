@@ -25,11 +25,17 @@ export default class App extends Component {
     })
   }
 
+  venuePortal() {
+    this.setState({
+      venuePortal: true
+    })
+  }
+
   render() {
 // refactor to render sub render functions - see blog post !?!?
     const { venues, venuePortal } = this.state;
       return (<div>
-
+        <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
           <h1>Keep Ahead</h1>
           {(!venuePortal && venues.length > 0) ?
             <ShowVenues
@@ -37,6 +43,9 @@ export default class App extends Component {
             />
             :
             <div> loading.... </div>
+           }
+           {
+             venuePortal ? <VenuePortal /> : null
            }
         </div>
       );
