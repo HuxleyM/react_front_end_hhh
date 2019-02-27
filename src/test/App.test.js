@@ -26,6 +26,12 @@ describe('App js shouls say Keep Ahead', ()=>{
         ).toBeTruthy()
     })
 
+  describe('geolocation', ()=>{
+    it('its geolocation should be able to run', ()=>{
+     expect(mountWrapper.instance().geolocateMe()).toBe
+    })
+  })
+
 
 
     describe('Show Venues', () => {

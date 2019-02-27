@@ -11,17 +11,40 @@ export default class App extends Component {
       signup: false
       }
     }
+  
+  geolocateMe = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.getLatandLong);
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
+    }
 
-   componentDidMount() {
-     fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues')
-    .then((response) => {
-      return response.json()
-    })
-    .then((response) => {
-      this.setState({
-        venues: response
+  getLatandLong = (position) => {
+      let location =  {location : {lat : position.coords.latitude.toFixed(2),  long : position.coords.longitude.toFixed(2)}};
+      const body  = JSON.stringify(location)
+      console.log(body)
+
+      fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues', {
+        method: 'POST',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: body
       })
-    })
+      .then((response) => {
+        return response.json()
+      })
+      .then((response) => {
+        this.setState({
+          venues: response
+        })
+      })
+
+    }
+ 
+   componentDidMount() {
+    this.geolocateMe();
   }
 
   _onSignupClick(){
