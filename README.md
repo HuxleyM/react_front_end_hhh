@@ -7,10 +7,9 @@ A small web app designed to assist users in donating food to the homeless. The a
 
 ```
 Javascript - base Language.
-Node - Javascript framework.
 Javascript React - Library for Javascript.
 Jest - Testing framework for Javascript & React.
-Enzyme - Front end testing framework for React.
+Enzyme - Testing Framework for React.
 ESLint - Javascript/React Linter.
 Coffee - A hot brown liquid known for its life giving benefits
 Alex's Calves - The definition of defined and unerring moral support
@@ -24,9 +23,9 @@ Alex's Calves - The definition of defined and unerring moral support
 3. Run ``` npm start ``` to open the page in your browser.
 
 ## Testing
-- Testing has been carried out with Jest to test all small units of code and ensure our functions function as predicted.
+- Testing has been carried out with Jest and Enzyme to test all small units of code and ensure our functions function as predicted.
 - Test coverage currently reports as :
-- Tests are run in the console via the ``` npm test ``` command.
+- Tests are run in the console via the ``` npm test``` command.
 - Test Coverage can be viewed by running ``` npm test -- --coverage ```
     - This will generate a test coverage file you will have to ** gitigignore **
     - You can use this file to view an HTML output of our test coverage.
