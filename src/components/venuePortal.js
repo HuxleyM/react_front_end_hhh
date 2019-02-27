@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import SignUp from './components/signup'
 import SignIn from './components/signin'
 
-export default class App extends Component {
+export default class VenuePortal extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       signup: false,
       signin: false
@@ -25,12 +25,12 @@ export default class App extends Component {
 
     render() {
   // refactor to render sub render functions - see blog post !?!?
-      const { venues, signup, signin } = this.state;
+      const { venues } = this.state;
         return (<div>
           <h1>Keep Ahead</h1>
           <h3>Venue signin/signup</h3>
 
-           { signup ?
+           { this.state.signup ?
             < SignUp /> :
             <div>
               <div className="signup"></div>
@@ -38,7 +38,7 @@ export default class App extends Component {
             </div>
             }
 
-          { signin ?
+          { this.state.signin ?
             < SignIn /> :
             <div>
               <div className="signup"></div>
