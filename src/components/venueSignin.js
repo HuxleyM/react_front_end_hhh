@@ -21,7 +21,7 @@ export default class SignIn extends Component {
 
    const body = JSON.stringify({ venue: { email: email, password: password} })
 
-   fetch(`http://localhost:3000/signin`,{
+   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signin`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
@@ -43,11 +43,12 @@ export default class SignIn extends Component {
       //error
     }
   }
+
    setVenue = (res) => {
     this.setState({
-      venueSignedIn : res[0]
+      venueSignedIn : res
     })
-    this.props.action()
+    this.props.action();
     console.log(this.state.venueSignedIn)
   }
 

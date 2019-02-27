@@ -14,7 +14,7 @@ export default class VenueProfile extends Component {
 
   componentDidMount() {
     const { venue } = this.props;
-    fetch(`https://localhost:3000/api/v1/venues/${venue.id}/donations`)
+    fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venue.id}/donations`)
     .then((response) => {
       return response.json()
     })

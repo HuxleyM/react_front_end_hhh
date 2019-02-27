@@ -27,6 +27,14 @@ export default class VenuePortal extends Component {
       })
     }
 
+    _onLogoutClick() {
+      this.setState({
+        signup: false,
+        signin: false,
+        loggedIn: false
+      })
+    }
+
     handler(param1) {
     console.log(param1);
     this.setState({
@@ -57,9 +65,13 @@ export default class VenuePortal extends Component {
          }
          </div>
       )
+
+      const logoutButton = (
+        <button id='log_out_button' onClick={()=> { this._onLogoutClick() } }>Log out</button>
+      )
         return (<div>
 
-          {loggedIn ? <h3>LOGOUT</h3> : loginButtons}
+          {loggedIn ? logoutButton : loginButtons}
           </div>
         );
       }

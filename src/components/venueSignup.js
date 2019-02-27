@@ -25,7 +25,7 @@ export default class SignUp extends Component {
 
 
 
-   fetch(`http://localhost:3000/signup`,{
+   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
@@ -43,8 +43,8 @@ export default class SignUp extends Component {
     this.setState({
       venueSignedIn : res
     })
-    console.log(this.state.venueSignedIn)
-    this.props.action()
+    console.log(this.state.venueSignedIn);
+    this.props.action();
   }
 
   render(){
