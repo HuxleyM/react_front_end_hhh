@@ -20,11 +20,11 @@ export default class SignUp extends Component {
 
   sendVenue = (name, address, email, password) => {
 
-   const body = JSON.stringify({  venue: {name: name, address: address, email: email, password: password}})
+   const body = JSON.stringify({ venue: { name: name, address: address, email: email, password: password }})
 
 
 
-   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
+   fetch(`https://localhost:3000/signup`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'

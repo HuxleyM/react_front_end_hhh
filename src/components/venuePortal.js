@@ -13,12 +13,14 @@ export default class VenuePortal extends Component {
 
     _onSignupClick(){
       this.setState({
+        signin: false,
         signup: true
       })
     }
 
     _onSignInClick(){
       this.setState({
+        signup: false,
         signin: true
       })
     }
