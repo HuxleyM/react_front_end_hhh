@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import SignUp from './components/signup'
-import SignIn from './components/signin'
+import SignUp from './venueSignup'
+import SignIn from './venueSignin'
 
 export default class VenuePortal extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       signup: false,
       signin: false
@@ -25,12 +25,12 @@ export default class VenuePortal extends Component {
 
     render() {
   // refactor to render sub render functions - see blog post !?!?
-      const { venues } = this.state;
+      const { venues, signup, signin } = this.state;
         return (<div>
-          <h1>Keep Ahead</h1>
+
           <h3>Venue signin/signup</h3>
 
-           { this.state.signup ?
+           { signup ?
             < SignUp /> :
             <div>
               <div className="signup"></div>
@@ -38,7 +38,7 @@ export default class VenuePortal extends Component {
             </div>
             }
 
-          { this.state.signin ?
+          { signin ?
             < SignIn /> :
             <div>
               <div className="signup"></div>

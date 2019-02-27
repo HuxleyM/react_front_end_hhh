@@ -3,6 +3,7 @@ import SignUpForm from './signupForm'
 
 export default class SignUp extends Component {
   constructor() {
+    super();
     this.state = {
       venueSignedIn : null
     }
@@ -47,9 +48,9 @@ export default class SignUp extends Component {
   render(){
     return (
       <div>
-      <SignUpForm
-      handleForm={this.handleForm}
-      />
+        <SignUpForm
+        handleForm={this.handleForm}
+        />
       </div>
     )
   }

@@ -34,23 +34,28 @@ export default class App extends Component {
   render() {
 // refactor to render sub render functions - see blog post !?!?
     const { venues, venuePortal } = this.state;
-      return (<div>
-
+      return (
+        <div>
+        {
+          venuePortal ?
+          <button onClick={() => {window.location = '/'}}>Home</button>
+          :
           <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
+        }
 
-          <h1>Keep Ahead</h1>
+        <h1>Keep Ahead</h1>
 
-          {
-            (!venuePortal && venues.length > 0) ?
-            <ShowVenues
-            venueList={venues}
-            />
-            :
-            <div> loading.... </div>
-          }
-          {
-             venuePortal ? <VenuePortal /> : null
-          }
+        {
+          (!venuePortal && venues.length > 0) ?
+          <ShowVenues
+          venueList={venues}
+          />
+          :
+          null
+        }
+        {
+           venuePortal ? <VenuePortal /> : null
+        }
         </div>
       );
     }
