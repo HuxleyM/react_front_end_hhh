@@ -32,7 +32,7 @@ export default class Checkout extends Component {
     })
 
     fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`,{
-      // `http://localhost:3000/api/v1/venues/${venueId}/donations`
+      // `https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`
       // `https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`
       method: 'POST',
       headers: {

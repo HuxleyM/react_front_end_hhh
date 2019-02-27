@@ -35,8 +35,8 @@ export default class VenuePortal extends Component {
       })
     }
 
-    handler(param1) {
-    console.log(param1);
+    handler() {
+    console.log();
     this.setState({
         loggedIn: true
     });
