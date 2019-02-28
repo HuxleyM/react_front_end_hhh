@@ -35,19 +35,19 @@ export default class VenuePortal extends Component {
         signup: false,
         signin: false,
         loggedIn: false,
-        veune: null
+        venue: null
       })
     }
 
-    handler(res) {
+    handler(venue) {
     this.setState({
         loggedIn: true,
-        venue: res
+        venue: venue
     });
   }
 
     render() {
-      
+
       const { venue, signup, signin, loggedIn } = this.state;
 
       const loginButtons = (

@@ -22,19 +22,19 @@ export default class SignIn extends Component {
    }).then((res)=>{
      return res.json()})
    .then((res)=>{
-     this.validSignIn(res)
-     this.setVenue(res);
+     // this.validSignIn(res)
+     this.setVenue(res[0]);
    })
   }
 
-  validSignIn(res){
-    if( res !== undefined){
-      this.setVenue(res[0])
-    }
-    else{
-      //error
-    }
-  }
+  // validSignIn(res){
+  //   if( res != undefined){
+  //     this.setVenue(res[0])
+  //   }
+  //   else{
+  //     //error
+  //   }
+  // }
 
    setVenue = (res) => {
     this.props.action(res);
