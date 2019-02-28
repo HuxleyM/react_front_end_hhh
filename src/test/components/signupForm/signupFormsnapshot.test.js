@@ -1,11 +1,19 @@
-import SignUp from '../components/signup.js'
-import React, {Component} from 'react';
+import React, { Component } from 'React';
+import { create } from "react-test-renderer";
+import SignUpForm from '../../../components/signupForm'
 import {shallow, mount, render} from 'enzyme'
+
+describe("SignupForm", () => {
+  test("it matches the snapshot", () => {
+    const component = create(<SignUpForm />);
+    expect(component.toJSON()).toMatchSnapshot();
+  });
+});
 
 describe('Sign up', () => {
 
   const wrapper = mount(
-    <SignUp/>
+    <SignUpForm/>
   )
 
   it('displays a form to signup with', () => {

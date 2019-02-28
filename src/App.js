@@ -1,14 +1,15 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-import Signup from './components/signup'
-// import SignIn from './components/signin'
+import VenuePortal from './components/venuePortal'
+
+
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       venues: [],
-      signup: false
+      venuePortal: false
       }
     }
   
@@ -48,31 +49,38 @@ export default class App extends Component {
     this.geolocateMe();
   }
 
-  _onSignupClick(){
+  venuePortal() {
     this.setState({
-      signup: true
+      venuePortal: true
     })
   }
-  render() {
 
-    const { venues } = this.state;
-      return (<div>
-        { this.state.signup ?
-          < Signup /> :
-          <div className="App">
-          <div className="signup">
-          <button onClick={()=> {this._onSignupClick()}}>Sign Up</button>
-          </div>
-              <h1>Keep Ahead</h1>
-              {(venues.length > 0) ?
-                <ShowVenues
-                venueList={venues}
-                />
-                :
-                <div> loading.... </div>
-               }
-          </div>
-        }</div>
+  render() {
+// refactor to render sub render functions - see blog post !?!?
+    const { venues, venuePortal } = this.state;
+      return (
+        <div>
+        {
+          venuePortal ?
+          null
+          :
+          <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
+        }
+
+        <h1>Keep Ahead</h1>
+
+        {
+          (!venuePortal && venues.length > 0) ?
+          <ShowVenues
+          venues={venues}
+          />
+          :
+          null
+        }
+        {
+           venuePortal ? <VenuePortal /> : null
+        }
+        </div>
       );
     }
 }

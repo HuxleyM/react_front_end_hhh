@@ -1,57 +1,54 @@
 import React, {Component} from 'react';
+import SignInForm from './signinForm';
 
 
 export default class SignIn extends Component {
 
-  handleform = (event) => {
+  handleForm = (event) => {
     event.preventDefault();
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
+    this.sendVenue(email, password)
   }
 
   sendVenue = (email, password) => {
 
    const body = JSON.stringify({ venue: { email: email, password: password} })
 
-   fetch(`http://localhost:5000/api/v1/venues`,{
+   fetch(`https://enigmatic-badlands-83570.herokuapp.com/signin`,{
      method: 'POST',
      headers:{
        'Content-Type': 'application/json'
      },
      body: body
    }).then((res)=>{
-     console.log("yes");
      return res.json()})
    .then((res)=>{
-     console.log(res);
-
+     // this.validSignIn(res)
+     this.setVenue(res[0]);
    })
+  }
 
-   }
+  // validSignIn(res){
+  //   if( res != undefined){
+  //     this.setVenue(res[0])
+  //   }
+  //   else{
+  //     //error
+  //   }
+  // }
+
+   setVenue = (res) => {
+    this.props.action(res);
+  }
+
 
   render(){
-    return (<form onSubmit ={ this.handleform }>
-    <label>Email</label>
-    <input
-    type='email'
-    id='email'
-    placeholder='crisis@gmail.com'
-    ></input>
 
-    <label>password</label>
-    <input
-    type='password'
-    id='password'
-    placeholder=''
-    ></input>
-
-    <input
-      id='submit_form'
-      type="submit"
-      value="Submit"
-    ></input>
-    </form>
-    
-  )
+    return (
+      <SignInForm
+      handleForm={this.handleForm}
+      />
+    )
   }
 }
