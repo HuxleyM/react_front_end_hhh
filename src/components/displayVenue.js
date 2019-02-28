@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Donation from './donation'
+import Checkout from './checkout';
+
 
 export default class DisplayVenue extends Component {
   constructor(props) {
@@ -23,8 +24,11 @@ render() {
    return(
      <div>
      {this.state.confirmDonation ?
-      <Donation
-      venue={venue}/> :
+        <Checkout
+        name={'Help those who are less fortunate'}
+        description={'Donate today!'}
+        venue={venue}
+         /> :
       <div>
         <p>{venue.name} {venue.address} </p>
         <button className='venue' onClick={this._onButtonClick}> Donate </button>

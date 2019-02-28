@@ -68,31 +68,32 @@ export default class Checkout extends Component {
   render () {
     const { confirmation } = this.state;
 
+    //why div over form?
     return (
       <div>
           {(confirmation === false) ?
-        <div>
-        <label> FORM </label>
-        <input
-          type="text"
-          id="amount"
-          placeholder="amount"
-          onChange={this.changeAmount}
-        ></input>
-        <input
-          type="text"
-          id="passphrase"
-          placeholder = "rhinounicorn"
-          onChange={this.changePassphrase}
-        ></input>
-        <StripeCheckout
-          name={this.state.name}
-          description={this.state.description}
-          amount={fromGbpToPence(this.state.amount)}
-          token={this.onToken}
-          currency={CURRENCY}
-          stripeKey={STRIPE_PUBLISHABLE}
-        />
+        <div id='fake-form'>
+          <label> FORM </label>
+          <input
+            type="text"
+            id="amount"
+            placeholder="amount"
+            onChange={this.changeAmount}
+          ></input>
+          <input
+            type="text"
+            id="passphrase"
+            placeholder = "rhinounicorn"
+            onChange={this.changePassphrase}
+          ></input>
+          <StripeCheckout
+            name={this.state.name}
+            description={this.state.description}
+            amount={fromGbpToPence(this.state.amount)}
+            token={this.onToken}
+            currency={CURRENCY}
+            stripeKey={STRIPE_PUBLISHABLE}
+          />
         </div>
         :
         <div>
@@ -103,4 +104,4 @@ export default class Checkout extends Component {
       </div>
     )
   }
-}
+} 
