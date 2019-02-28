@@ -21,10 +21,13 @@ export default class ShowVenues extends Component {
 
     const list = venues && venues.map((venue, index) => {
       return (
-        <p key={index}>
-          <li> {venue.name} {venue.address} {venue.distance}km</li>
-          <button onClick={()=>{this._updateVenue(venue)}}>view</button>
-        </p>
+       
+          <li> 
+            <h3>{venue.name}</h3>
+            <p>{venue.address}<button onClick={()=>{this._updateVenue(venue)}}>view</button></p>
+            <p>{venue.distance}km </p> 
+
+          </li>
       )
     })
 
@@ -35,3 +38,4 @@ export default class ShowVenues extends Component {
 }
 
 // still cant see when were actually using index, as in what is it adding?
+// removed index then changed to p

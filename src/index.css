@@ -64,13 +64,35 @@ table {
 	border-spacing: 0;
 }
 
+h1 {
+  font-size: 32px;
+}
+
 h1, h2, h3, label{
   font-family: 'Raleway', sans-serif;
+  padding:5px;
+}
+
+button {
+  padding:5px;
+  border-radius:5px;
+}
+
+p {
+  padding: 5px;
+}
+
+button:hover{
+  cursor: pointer;
+  background: #cdcdcd
 }
 
 /*---------------------------- -----------------------------------*/
-
+#title{
+  margin-left:10vw;
+}
 form, #fake-form{
+  min-width: 300px;
   width:30vw;
   height: 50vh;
   padding: 20px;
@@ -80,5 +102,39 @@ form input{
   display:block;
   margin:5px 0px 10px 0px;
 }
+
+ul {
+  margin: 0 auto;
+  min-width: 300px;
+  width: 80vw;
+}
+
+ul li{
+  margin: 10px 0px;
+}
+
+hr{
+  margin:0 auto;
+  width:95%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+ul li button {
+  float:right;
+  margin-right:10px;
+}
+
+#venue_portal_button{
+  float:right;
+  margin-right: 10vw;
+  margin-top: 1vh;
+}
+
+
+
 
 

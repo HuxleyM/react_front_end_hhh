@@ -30,7 +30,8 @@ render() {
         venue={venue}
          /> :
         <div>
-          <p>{venue.name} {venue.address} </p>
+          <h3>{venue.name}</h3>
+          <p> {venue.address}</p>
           <button className='venue' onClick={this._onButtonClick}> Donate </button>
         </div>
     } </div>

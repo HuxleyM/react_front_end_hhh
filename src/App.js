@@ -58,8 +58,9 @@ export default class App extends Component {
       return (
         <div>
         {!venuePortal &&  <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>}
-        <h1>Keep Ahead</h1>
-        
+        <h1 id='title'>Keep Ahead</h1>
+        <hr/>
+
         {
           (!venuePortal && venues.length > 0) ?
           <ShowVenues
