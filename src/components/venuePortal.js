@@ -13,7 +13,7 @@ export default class VenuePortal extends Component {
       loggedIn: false,
       venue: null
       }
-      this.handler = this.handler.bind(this);
+      this.setVenue = this.setVenue.bind(this);
     }
 
     _onSignupClick(){
@@ -39,7 +39,7 @@ export default class VenuePortal extends Component {
       })
     }
 
-    handler(venue) {
+    setVenue(venue) {
     this.setState({
         loggedIn: true,
         venue: venue
@@ -53,7 +53,7 @@ export default class VenuePortal extends Component {
       const loginButtons = (
         <div id="login_buttons">
         { signup ?
-         < SignUp action={this.handler} /> :
+         < SignUp action={this.setVenue} /> :
          <div>
            <div className="signup"></div>
            <button id='sign_up_button' onClick={()=> { this._onSignupClick() } }>Sign Up</button>
@@ -61,7 +61,7 @@ export default class VenuePortal extends Component {
          }
 
        { signin ?
-         < SignIn action={this.handler} /> :
+         < SignIn action={this.setVenue} /> :
          <div>
            <div className="signup"></div>
            <button id='sign_in_button'onClick={()=> { this._onSignInClick() } }>Sign In</button>
