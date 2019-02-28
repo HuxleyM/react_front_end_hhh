@@ -4,7 +4,7 @@ import SignInForm from './signinForm';
 
 export default class SignIn extends Component {
 
-  handleform = (event) => {
+  handleForm = (event) => {
     event.preventDefault();
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;

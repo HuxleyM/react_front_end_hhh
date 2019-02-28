@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const SignInForm = ( { handleForm }) => {
+const SignInForm = ({ handleForm }) => {
     return (<form onSubmit ={ handleForm }>
       <label>Email</label>
       <input
