@@ -4,7 +4,7 @@ export default class FullDonationList extends Component {
 
   formatDate(date) {
     let newDate = new Date(date)
-    return (newDate.toLocaleDateString() + " " + newDate.toLocaleTimeString());
+    return `${newDate.toLocaleDateString()} ${newDate.toLocaleTimeString()}`;
   }
 
   render() {
@@ -24,3 +24,4 @@ export default class FullDonationList extends Component {
   )
   }
 }
+// like this, refacoted line seven to string interpolation

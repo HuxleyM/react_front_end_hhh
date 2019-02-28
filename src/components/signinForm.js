@@ -2,7 +2,9 @@ import React from 'react';
 
 
 const SignInForm = ({ handleForm }) => {
-    return (<form onSubmit ={ handleForm }>
+    return (
+    <form onSubmit ={ handleForm }>
+
       <label>Email</label>
       <input
       type='email'
@@ -18,10 +20,12 @@ const SignInForm = ({ handleForm }) => {
       ></input>
 
       <input
+        className = 'action_button'
         id='submit_form'
         type="submit"
         value="Submit"
       ></input>
+
   	</form>
   	)
   }

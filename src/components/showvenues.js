@@ -33,3 +33,5 @@ export default class ShowVenues extends Component {
 
   }
 }
+
+// still cant see when were actually using index, as in what is it adding?

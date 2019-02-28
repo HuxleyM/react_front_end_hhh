@@ -2,7 +2,8 @@ import React from 'react';
 
 
 const SignUpForm = ( { handleForm }) => {
-	return (<form onSubmit ={ handleForm }>
+	return (
+	<form onSubmit ={ handleForm }>
 		<label>Venue Name</label>
 		<input
 			type='text'
@@ -31,7 +32,8 @@ const SignUpForm = ( { handleForm }) => {
 			placeholder='qwe123'
 		></input>
 
-		<input className="submitForm"
+		<input 
+		    className="submitForm action_button"
 			id='submit_form'
 			type="submit"
 			value="Submit"
@@ -40,3 +42,5 @@ const SignUpForm = ( { handleForm }) => {
 	)
 }
 export default SignUpForm
+
+//handle if no donations api side

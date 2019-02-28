@@ -32,8 +32,7 @@ export default class Checkout extends Component {
     })
 
     fetch(`https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`,{
-      // `https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`
-      // `https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations`
+   
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -69,6 +68,7 @@ export default class Checkout extends Component {
     const { confirmation } = this.state;
 
     //why div over form?
+    // maybe split into two comps
     return (
       <div>
           {(confirmation === false) ?

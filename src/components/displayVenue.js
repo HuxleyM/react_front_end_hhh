@@ -29,11 +29,13 @@ render() {
         description={'Donate today!'}
         venue={venue}
          /> :
-      <div>
-        <p>{venue.name} {venue.address} </p>
-        <button className='venue' onClick={this._onButtonClick}> Donate </button>
-      </div>
+        <div>
+          <p>{venue.name} {venue.address} </p>
+          <button className='venue' onClick={this._onButtonClick}> Donate </button>
+        </div>
     } </div>
    )
  }
 }
+
+//refactored out checkout streightin
