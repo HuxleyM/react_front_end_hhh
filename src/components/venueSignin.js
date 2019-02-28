@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import SignInForm from './signinForm';
+
 
 export default class SignIn extends Component {
 
@@ -44,31 +46,9 @@ export default class SignIn extends Component {
   render(){
 
     return (
-      <div>
-        <div>
-        <form onSubmit ={ this.handleform }>
-        <label>Email</label>
-        <input
-        type='email'
-        id='email'
-        placeholder='crisis@gmail.com'
-        ></input>
-
-        <label>Password</label>
-        <input
-        type='password'
-        id='password'
-        placeholder=''
-        ></input>
-
-        <input
-          id='submit_form'
-          type="submit"
-          value="Submit"
-        ></input>
-        </form>
-        </div>
-      </div>
+      <SignInForm
+      handleForm={this.handleForm}
+      />
     )
   }
 }
