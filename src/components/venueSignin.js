@@ -22,19 +22,16 @@ export default class SignIn extends Component {
      },
      body: body
    }).then((res)=>{
+     this.validSignIn(res);
      return res.json()})
    .then((res)=>{
-     this.validSignIn(res);
-     // this.setVenue(res[0]);
+     this.setVenue(res[0]);
    })
   }
 
   validSignIn(res){
-    if( res != undefined){
-      this.setVenue(res[0])
-    }
-    else{
-      alert('Incorrect details - please try again')
+    if( res.status !== 200){
+      return alert('Incorrect details - please try again')
     }
   }
 

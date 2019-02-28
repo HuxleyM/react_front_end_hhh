@@ -24,7 +24,6 @@ export default class App extends Component {
   getLatandLong = (position) => {
       let location =  {location : {lat : position.coords.latitude.toFixed(2),  long : position.coords.longitude.toFixed(2)}};
       const body  = JSON.stringify(location)
-      console.log(body)
 //https://enigmatic-badlands-83570.herokuapp.com/api/v1/
       fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues', {
         method: 'POST',
@@ -40,7 +39,6 @@ export default class App extends Component {
         this.setState({
           venues: response
         })
-        console.log(response)
       })
 
     }
