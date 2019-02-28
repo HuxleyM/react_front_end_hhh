@@ -1,17 +1,15 @@
 
 import React, {Component} from 'react';
 import ShowVenues from './components/showvenues'
-import Signup from './components/signup'
+import VenuePortal from './components/venuePortal'
 
-import SignIn from './components/signin'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       venues: [],
-      signup: false,
-      signin:false
+      venuePortal: false
       }
     }
 
@@ -27,46 +25,37 @@ export default class App extends Component {
     })
   }
 
-  _onSignupClick(){
+  venuePortal() {
     this.setState({
-      signup: true
+      venuePortal: true
     })
   }
 
-  _onSignInClick(){
-    this.setState({
-      signin: true
-    })
-  }
   render() {
 // refactor to render sub render functions - see blog post !?!?
-    const { venues } = this.state;
-      return (<div>
+    const { venues, venuePortal } = this.state;
+      return (
+        <div>
+        {
+          venuePortal ?
+          null
+          :
+          <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
+        }
 
-         { this.state.signup ?
-          < Signup /> :
-          <div>
-            <div className="signup"></div>
-            <button id='sign_up_button' onClick={()=> { this._onSignupClick() } }>Sign Up</button>
-          </div> 
-          }
+        <h1>Keep Ahead</h1>
 
-        { this.state.signin ?
-          < SignIn /> :
-          <div>
-            <div className="signup"></div>
-            <button id='sign_in_button'onClick={()=> { this._onSignInClick() } }>Sign In</button>
-          </div> 
-          }
-
-          <h1>Keep Ahead</h1>
-          {(venues.length > 0) ?
-            <ShowVenues
-            venueList={venues}
-            />
-            :
-            <div> loading.... </div>
-           }
+        {
+          (!venuePortal && venues.length > 0) ?
+          <ShowVenues
+          venueList={venues}
+          />
+          :
+          null
+        }
+        {
+           venuePortal ? <VenuePortal /> : null
+        }
         </div>
       );
     }
