@@ -26,47 +26,26 @@ describe('App js should say Keep Ahead', ()=>{
         ).toBeTruthy()
     })
 
-  describe('geolocation', ()=>{
-    it('its geolocation should be able to run', ()=>{
-     expect(mountWrapper.instance().geolocateMe()).toBe
-    })
-  })
-
-
-    describe('Show Venues', () => {
-      it('should render loading div if no values present', ()=> {
-        var dummy = mountWrapper
-        dummy.setState( { venues: [] } )
-        expect(
-          dummy.containsMatchingElement(
-            <div> loading.... </div>
-          )
-        ).toBeTruthy()
-      })
-    })
-
     describe('Sign up', () => {
-      it('renders a signup button', () => {
-      expect(renderWrapper.find('#sign_up_button').text()).toBe('Sign Up')
+      it('renders a venuePortal button', () => {
+      expect(renderWrapper.find('#venue_portal_button').text()).toBe('Venue Portal')
       })
 
       it('should not display if user is signed up', () => {
-        wrapper.find('#sign_up_button').simulate('click');
-        expect(wrapper.state('signup')).toEqual(true)
-        //expect(renderWrapper.find('#sign_up_button').text()).toBeFalsy()
+        wrapper.find('#venue_portal_button').simulate('click');
+        expect(wrapper.state('venuePortal')).toEqual(true)
       })
     })
 
 
     describe('Sign in', () => {
-      it('renders a signin button', () => {
-        expect(renderWrapper.find('#sign_in_button').text()).toBe('Sign In')
+      it('renders a venues portal button', () => {
+        expect(renderWrapper.find('#venue_portal_button').text()).toBe('Venue Portal')
       })
 
       it('should not display if user is signed in', () => {
-        wrapper.find('#sign_in_button').simulate('click');
-        expect(wrapper.state('signin')).toEqual(true)
-        //expect(renderWrapper.find('#sign_in_button').text()).toBeFalsy()
+        wrapper.find('#venue_portal_button').simulate('click');
+        expect(wrapper.state('venuePortal')).toEqual(true)
       })
   })
 })
