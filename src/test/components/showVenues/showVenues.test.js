@@ -28,7 +28,7 @@ describe("Show Venues", () => {
 
   it('onClick calls the update venue back', () => {
     wrapper.instance()._updateVenue = jest.fn()
-    wrapper.find('button').simulate('click')
+    wrapper.find('button').first().simulate('click')
     expect(wrapper.instance()._updateVenue).toHaveBeenCalled();
   })
 

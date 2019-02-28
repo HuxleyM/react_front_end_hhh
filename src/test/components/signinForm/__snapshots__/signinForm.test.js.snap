@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignupForm it matches the snapshot 1`] = `
+<form>
+  <label>
+    Email
+  </label>
+  <input
+    id="email"
+    placeholder="crisis@gmail.com"
+    type="email"
+  />
+  <label>
+    Password
+  </label>
+  <input
+    id="password"
+    placeholder=""
+    type="password"
+  />
+  <input
+    id="submit_form"
+    type="submit"
+    value="Submit"
+  />
+</form>
+`;
