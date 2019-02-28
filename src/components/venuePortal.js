@@ -7,8 +7,8 @@ export default class VenuePortal extends Component {
   constructor() {
     super();
     this.state = {
-      loggedIn: false,
-      venue: null,
+      // loggedIn: false,
+      // venue: null,
       process: false
       }
       this.handler = this.handler.bind(this);
@@ -68,5 +68,5 @@ export default class VenuePortal extends Component {
           }
         </div>
       );
-    }
+   }
 }
