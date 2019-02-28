@@ -80,7 +80,7 @@ export default class VenuePortal extends Component {
             {loggedIn ? logoutButton : loginButtons}
           </div>
           <div>
-          {loggedIn ? <VenueProfile venue={venue} /> : null}
+            {loggedIn ? <VenueProfile venue={venue} /> : null}
           </div>
         </div>
       );
