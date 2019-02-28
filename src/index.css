@@ -134,6 +134,19 @@ ul li button {
   margin-top: 1vh;
 }
 
+.wrapper, #login_buttons{
+  margin:0 auto;
+  width:80%;
+}
+
+#login_buttons {
+  display: inline-block;
+  margin-top: 2vh;
+}
+#login_buttons button{
+  margin: 2vh 2vw ;
+}
+
 
 
 

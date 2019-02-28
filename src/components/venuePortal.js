@@ -37,20 +37,6 @@ export default class VenuePortal extends Component {
 
       const { venue, loggedIn } = this.state;
 
-      const loginButtons = (
-        <div id="login_buttons">
-            <button id='sign_up_button' onClick={()=> { this._changeProcess('signup') } }>Sign Up</button>
-            <button id='sign_in_button'onClick={()=> { this._changeProcess('signin') } }>Sign In</button>
-
-            { this.state.process == 'signup' &&
-            < SignUp action={this.handler} /> }
-          
-            {this.state.process == 'signin' &&
-            < SignIn action={this.handler} /> }
-      
-      </div> )
-      
-    
       return (
         <div>
           {loggedIn ? 
@@ -59,9 +45,17 @@ export default class VenuePortal extends Component {
               <VenueProfile venue={venue} />
             </div>
             :
-            <div>
-              {loginButtons}
+            
+            <div id="login_buttons">
               <button onClick={() => {window.location = '/'}}>Home</button>
+              <button id='sign_up_button' onClick={()=> { this._changeProcess('signup') } }>Sign Up</button>
+              <button id='sign_in_button'onClick={()=> { this._changeProcess('signin') } }>Sign In</button>
+
+              { this.state.process == 'signup' &&
+              < SignUp action={this.handler} /> }
+            
+              {this.state.process == 'signin' &&
+              < SignIn action={this.handler} /> }
             </div>
           }
         </div>
