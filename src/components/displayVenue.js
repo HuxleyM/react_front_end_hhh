@@ -5,7 +5,6 @@ export default class DisplayVenue extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      venue: this.props.venue,
       confirmDonation: false
     }
     this._onButtonClick = this._onButtonClick.bind(this);
@@ -17,10 +16,9 @@ _onButtonClick(){
   })
 }
 
-
 render() {
 
-   const venue = this.state.venue;
+   const { venue } = this.props;
 
    return(
      <div>
