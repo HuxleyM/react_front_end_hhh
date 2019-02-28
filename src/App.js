@@ -48,7 +48,7 @@ export default class App extends Component {
         {
           (!venuePortal && venues.length > 0) ?
           <ShowVenues
-          venueList={venues}
+          venues={venues}
           />
           :
           null

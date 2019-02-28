@@ -79,6 +79,7 @@ export default class VenuePortal extends Component {
           <div>
             {loggedIn ? logoutButton : loginButtons}
           </div>
+            {loggedIn ? null : <button onClick={() => {window.location = '/'}}>Home</button> }
           <div>
             {loggedIn ? <VenueProfile venue={venue} /> : null}
           </div>
