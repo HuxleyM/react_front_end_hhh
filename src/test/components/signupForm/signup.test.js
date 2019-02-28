@@ -1,4 +1,4 @@
-import SignUp from '../../../components/signup.js'
+import SignUp from '../../../components/venueSignup.js'
 import React, {Component} from 'react';
 import { create } from "react-test-renderer";
 import {shallow, mount, render} from 'enzyme'

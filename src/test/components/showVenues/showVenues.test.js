@@ -5,7 +5,6 @@ import {shallow, mount, render} from 'enzyme'
 describe("Show Venues", () => {
   let wrapper
   beforeEach(() => {
-    console.log('hi')
     wrapper = mount(<ShowVenues
       venueList={[{name: 'test',
       address: '13 test street',

@@ -7,17 +7,14 @@ describe('Venue Profile', () => {
   let mockVenue;
 
   beforeEach(() => {
-    let mockvenue = {venue:[{ name:'Crisis Cafe', address:'Commercial Street' }]}
+    let mockVenue = { name:'Crisis Cafe', address:'Commercial Street' }
     wrapper = mount(< VenueProfile
-                    venue={mockvenue}
+                    venue={mockVenue}
                     />)
     })
 
-  it('returns venue name as a header', () => {
-    expect(
-            wrapper.containsMatchingElement(
-                <h1>Crisis Cafe</h1>
-            )
-        ).toBeTruthy()
+  it('returns venue name in the component', () => {
+    console.log(wrapper.state.venue)
+    expect(wrapper.contains('Crisis Cafe')).toBe(true)
   })
 })

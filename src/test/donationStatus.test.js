@@ -21,7 +21,7 @@ describe('DonationStatus', () => {
   })
 
   it('check correct donation is present in props', () => {
-    expect(wrapper.props('donation')).toEqual(donation)
+    expect(wrapper.props('donation')).toEqual( {"donation": {"amount": 5, "id": 1, "passphrase": "rhinounicorn"}})
   })
 
   it('#redeemDonation starts false', () => {
