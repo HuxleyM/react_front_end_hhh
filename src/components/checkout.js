@@ -66,9 +66,6 @@ export default class Checkout extends Component {
 
   render () {
     const { confirmation } = this.state;
-
-    //why div over form?
-    // maybe split into two comps
     return (
       <div>
           {(confirmation === false) ?

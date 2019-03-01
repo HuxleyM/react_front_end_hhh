@@ -24,4 +24,3 @@ export default class FullDonationList extends Component {
   )
   }
 }
-// like this, refacoted line seven to string interpolation
