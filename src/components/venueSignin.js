@@ -6,8 +6,8 @@ export default class SignIn extends Component {
 
   handleForm = (event) => {
     event.preventDefault();
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
     this.sendVenue(email, password)
   }
 
@@ -22,21 +22,19 @@ export default class SignIn extends Component {
      },
      body: body
    }).then((res)=>{
+     this.validSignIn(res);
      return res.json()})
    .then((res)=>{
-     // this.validSignIn(res)
      this.setVenue(res[0]);
    })
   }
 
-  // validSignIn(res){
-  //   if( res != undefined){
-  //     this.setVenue(res[0])
-  //   }
-  //   else{
-  //     //error
-  //   }
-  // }
+
+  validSignIn(res){
+    if( res.status !== 200){
+      return alert('Incorrect details - please try again')
+    }
+  }
 
    setVenue = (res) => {
     this.props.action(res);

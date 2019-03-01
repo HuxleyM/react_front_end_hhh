@@ -25,9 +25,7 @@ export default class DonationStatus extends Component {
       })
     })
   }
-
-  // https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues/${venueId}/donations
-
+  
   render() {
     const { redeemed } = this.state;
     const { donation } = this.props;

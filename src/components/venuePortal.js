@@ -3,43 +3,30 @@ import SignUp from './venueSignup'
 import SignIn from './venueSignin'
 import VenueProfile from './venueProfile'
 
-
 export default class VenuePortal extends Component {
   constructor() {
     super();
     this.state = {
-      signup: false,
-      signin: false,
-      loggedIn: false,
-      venue: null
+      process: false
       }
-      this.handler = this.handler.bind(this);
+      this.setVenue = this.setVenue.bind(this);
     }
-
-    _onSignupClick(){
+   
+    _changeProcess(process){
       this.setState({
-        signin: false,
-        signup: true
-      })
-    }
-
-    _onSignInClick(){
-      this.setState({
-        signup: false,
-        signin: true
+        process: process,
       })
     }
 
     _onLogoutClick() {
       this.setState({
-        signup: false,
-        signin: false,
+        process: false,
         loggedIn: false,
         venue: null
       })
     }
 
-    handler(venue) {
+    setVenue(venue) {
     this.setState({
         loggedIn: true,
         venue: venue
@@ -48,42 +35,30 @@ export default class VenuePortal extends Component {
 
     render() {
 
-      const { venue, signup, signin, loggedIn } = this.state;
 
-      const loginButtons = (
-        <div id="login_buttons">
-        { signup ?
-         < SignUp action={this.handler} /> :
-         <div>
-           <div className="signup"></div>
-           <button id='sign_up_button' onClick={()=> { this._onSignupClick() } }>Sign Up</button>
-         </div>
-         }
-
-       { signin ?
-         < SignIn action={this.handler} /> :
-         <div>
-           <div className="signup"></div>
-           <button id='sign_in_button'onClick={()=> { this._onSignInClick() } }>Sign In</button>
-         </div>
-         }
-         </div>
-      )
-
-      const logoutButton = (
-        <button id='log_out_button' onClick={()=> { this._onLogoutClick() } }>Log out</button>
-      )
+     const { venue, loggedIn } = this.state;
 
       return (
         <div>
-          <div>
-            {loggedIn ? logoutButton : loginButtons}
-          </div>
-            {loggedIn ? null : <button onClick={() => {window.location = '/'}}>Home</button> }
-          <div>
-            {loggedIn ? <VenueProfile venue={venue} /> : null}
-          </div>
+          {loggedIn ? 
+            <div>
+              <button id='log_out_button' onClick={()=> { this._onLogoutClick() } }>Log out</button>
+              <VenueProfile venue={venue} />
+            </div>
+            :
+            <div id="login_buttons">
+              <button onClick={() => {window.location = '/'}}>Home</button>
+              <button id='sign_up_button' onClick={()=> { this._changeProcess('signup') } }>Sign Up</button>
+              <button id='sign_in_button'onClick={()=> { this._changeProcess('signin') } }>Sign In</button>
+
+              { this.state.process === 'signup' &&
+              < SignUp action={this.handler} /> }
+            
+              {this.state.process === 'signin' &&
+              < SignIn action={this.handler} /> }
+            </div>
+          }
         </div>
       );
-    }
+   }
 }

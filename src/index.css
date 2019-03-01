@@ -12,3 +12,150 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  font-family: 'Lato', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h1, h2, h3, label{
+  font-family: 'Raleway', sans-serif;
+  padding:5px;
+}
+
+button {
+  padding:5px;
+  border-radius:5px;
+}
+
+p {
+  padding: 5px;
+}
+
+button:hover{
+  cursor: pointer;
+  background: #cdcdcd
+}
+
+/*---------------------------- -----------------------------------*/
+#title{
+  margin-left:10vw;
+  padding:10px;
+}
+
+div form{
+  text-align: center;
+}
+form, #fake-form{
+  width: 300px;
+  height: 50vh;
+  padding: 20px;
+}
+
+form input, #fake-form input{
+  display:block;
+  width:100px;
+  margin:5px 0px 10px 100px;
+}
+
+ul {
+  margin: 0 auto;
+  min-width: 300px;
+  width: 80vw;
+}
+
+ul li{
+  margin: 10px 0px;
+}
+
+hr{
+  margin:0 auto;
+  width:95%;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+ul li button {
+  float:right;
+  margin-right:10px;
+}
+
+#venue_portal_button{
+  float:right;
+  margin-right: 10vw;
+  margin-top: 1vh;
+}
+
+.wrapper, #login_buttons{
+  margin:0 auto;
+  width:80%;
+}
+
+#login_buttons {
+  display: inline-block;
+  margin-top: 2vh;
+}
+#login_buttons button{
+  margin: 2vh 2vw ;
+}
+
+#action_button{
+  background:goldenrod;
+}
+
+action_button:hover{
+ background:green;
+}
