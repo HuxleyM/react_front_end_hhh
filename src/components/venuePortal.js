@@ -51,10 +51,10 @@ export default class VenuePortal extends Component {
               <button id='sign_in_button'onClick={()=> { this._changeProcess('signin') } }>Sign In</button>
 
               { this.state.process === 'signup' &&
-              < SignUp action={this.handler} /> }
+              < SignUp action={this.setVenue} /> }
 
               {this.state.process === 'signin' &&
-              < SignIn action={this.handler} /> }
+              < SignIn action={this.setVenue} /> }
             </div>
           }
         </div>
