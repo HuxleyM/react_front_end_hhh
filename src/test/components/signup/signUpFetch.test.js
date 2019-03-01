@@ -58,12 +58,4 @@ describe('Sign up Fetch request', () => {
     await flushPromises;
     expect(window.fetch).toHaveBeenCalledWith('https://enigmatic-badlands-83570.herokuapp.com/signup', expectedFetchBody)
   })
-
-  // it('sets the state of venueSignedIn to the parsed response', () => {
-  //
-  // })
-  //
-  // it('calls _setVenue when adding a new venue', () => {
-  //
-  // })
 })

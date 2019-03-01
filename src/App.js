@@ -52,7 +52,6 @@ export default class App extends Component {
   }
 
   render() {
-
     const { venues, venuePortal } = this.state;
       return (
         <div className='wrapper'>
