@@ -24,7 +24,7 @@ export default class ShowVenues extends Component {
        
           <li key={index}> 
             <h3>{venue.name}</h3>
-            <p>{venue.address}<button onClick={()=>{this._updateVenue(venue)}}>view</button></p>
+            <p>{venue.address}<button className='small_button' onClick={()=>{this._updateVenue(venue)}}>view</button></p>
             <p>{venue.distance}km </p> 
 
           </li>

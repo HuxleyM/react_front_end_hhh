@@ -75,13 +75,17 @@ h1, h2, h3, label{
   color: #22b573;
 }
 
-button {
+button, .small_button{
   font-family: 'Raleway-bold', sans-serif;
   font-size: 40px;
   color: #22b573;
   padding:15px;
   border-radius:45px;
   border-width: 0px
+}
+
+.small_button{
+  font-size:20px;
 }
 
 p {
@@ -110,7 +114,6 @@ form, #fake-form{
 }
 
 form input, #fake-form input{
-  
   display:block;
   width:100px;
   margin:5px 0px 10px 100px;

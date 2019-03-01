@@ -70,13 +70,15 @@ export default class Checkout extends Component {
       <div>
           {(confirmation === false) ?
         <div id='fake-form'>
-          <label> FORM </label>
+          <h2> FORM </h2>
+          <label>Amount:</label>
           <input
             type="text"
             id="amount"
             placeholder="amount"
             onChange={this.changeAmount}
           ></input>
+          <label>Passphrase:</label>
           <input
             type="text"
             id="passphrase"

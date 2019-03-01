@@ -70,7 +70,7 @@ export default class App extends Component {
             venues={venues}
             />
             :
-            <VenuePortal />
+            (venuePortal) ? <VenuePortal/> : <h2>Loading....</h2>
           }
         </div>
       );
