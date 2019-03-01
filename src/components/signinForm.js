@@ -10,6 +10,7 @@ const SignInForm = ({ handleForm }) => {
       type='email'
       id='email'
       placeholder='crisis@gmail.com'
+      required
       ></input>
 
       <label>Password</label>
@@ -17,6 +18,7 @@ const SignInForm = ({ handleForm }) => {
       type='password'
       id='password'
       placeholder=''
+      required
       ></input>
 
       <input

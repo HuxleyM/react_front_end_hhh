@@ -45,7 +45,6 @@ export default class VenuePortal extends Component {
               <VenueProfile venue={venue} />
             </div>
             :
-            
             <div id="login_buttons">
               <button onClick={() => {window.location = '/'}}>Home</button>
               <button id='sign_up_button' onClick={()=> { this._changeProcess('signup') } }>Sign Up</button>

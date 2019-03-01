@@ -19,7 +19,7 @@ export default class ShowVenues extends Component {
     const { venues } = this.props;
     const { venue } = this.state;
 
-    const list = venues && venues.map((venue, index) => {
+    const list = venues && venues.map((venue) => {
       return (
        
           <li> 
