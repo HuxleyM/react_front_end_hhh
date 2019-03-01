@@ -1,4 +1,4 @@
-import App from '../App'
+import App from '../../App'
 import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 

@@ -1,4 +1,4 @@
-import Donation from '../components/donation.js'
+import Donation from '../../../components/donation.js'
 import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 

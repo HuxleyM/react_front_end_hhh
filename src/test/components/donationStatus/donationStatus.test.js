@@ -1,4 +1,4 @@
-import DonationStatus from '../components/donationStatus.js'
+import DonationStatus from '../../../components/donationStatus.js'
 import React, {Component} from 'react';
 import {shallow, mount, render} from 'enzyme'
 
@@ -30,7 +30,6 @@ describe('DonationStatus', () => {
 
   it('#redeemDonation changes redeemed state to true', () => {
     expect(wrapper.find(<button/>))
-    // expect(wrapper.state('redeemed')).toBe(true)
   })
 
   it('renders a donation list object', () => {
