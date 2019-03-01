@@ -2,7 +2,9 @@
 
 exports[`Checkout Form it matches the snapshot 1`] = `
 <div>
-  <div>
+  <div
+    id="fake-form"
+  >
     <label>
        FORM 
     </label>

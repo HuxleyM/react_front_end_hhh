@@ -8,6 +8,7 @@ exports[`SignupForm it matches the snapshot 1`] = `
   <input
     id="email"
     placeholder="crisis@gmail.com"
+    required={true}
     type="email"
   />
   <label>
@@ -16,9 +17,11 @@ exports[`SignupForm it matches the snapshot 1`] = `
   <input
     id="password"
     placeholder=""
+    required={true}
     type="password"
   />
   <input
+    className="action_button"
     id="submit_form"
     type="submit"
     value="Submit"
