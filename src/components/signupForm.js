@@ -37,7 +37,7 @@ const SignUpForm = ( { handleForm } ) => {
 			required
 		></input>
 
-		<input 
+		<input
 		    className="submitForm action_button"
 			id='submit_form'
 			type="submit"
@@ -47,5 +47,3 @@ const SignUpForm = ( { handleForm } ) => {
 	)
 }
 export default SignUpForm
-
-//handle if no donations api side
