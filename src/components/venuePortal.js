@@ -11,7 +11,7 @@ export default class VenuePortal extends Component {
       }
       this.setVenue = this.setVenue.bind(this);
     }
-   
+
     _changeProcess(process){
       this.setState({
         process: process,
@@ -35,12 +35,11 @@ export default class VenuePortal extends Component {
 
     render() {
 
-
      const { venue, loggedIn } = this.state;
 
       return (
         <div>
-          {loggedIn ? 
+          {loggedIn ?
             <div>
               <button id='log_out_button' onClick={()=> { this._onLogoutClick() } }>Log out</button>
               <VenueProfile venue={venue} />
@@ -52,10 +51,10 @@ export default class VenuePortal extends Component {
               <button id='sign_in_button'onClick={()=> { this._changeProcess('signin') } }>Sign In</button>
 
               { this.state.process === 'signup' &&
-              < SignUp action={this.handler} /> }
-            
+              < SignUp action={this.setVenue} /> }
+
               {this.state.process === 'signin' &&
-              < SignIn action={this.handler} /> }
+              < SignIn action={this.setVenue} /> }
             </div>
           }
         </div>
