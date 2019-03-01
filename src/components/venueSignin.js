@@ -6,8 +6,8 @@ export default class SignIn extends Component {
 
   handleForm = (event) => {
     event.preventDefault();
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
     this.sendVenue(email, password)
   }
 
@@ -28,6 +28,7 @@ export default class SignIn extends Component {
      this.setVenue(res[0]);
    })
   }
+
 
   validSignIn(res){
     if( res.status !== 200){

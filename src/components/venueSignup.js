@@ -5,10 +5,10 @@ export default class SignUp extends Component {
 
   handleForm = (event) => {
     event.preventDefault();
-    var name = document.getElementById('venuename').value;
-    var address = document.getElementById('venueaddress').value;
-    var email = document.getElementById('venueEmail').value;
-    var password = document.getElementById('password').value;
+    let name = document.getElementById('venuename').value;
+    let address = document.getElementById('venueaddress').value;
+    let email = document.getElementById('venueEmail').value;
+    let password = document.getElementById('password').value;
     this.sendVenue(name, address, email, password)
   }
 
@@ -16,7 +16,7 @@ export default class SignUp extends Component {
 
   const body = JSON.stringify({ venue: { name: name, address: address, email: email, password: password }})
 
-  fetch(`https://enigmatic-badlands-83570.herokuapp.com/signup`,{
+  fetch(`http://localhost:3000/signup`,{
     method: 'POST',
     headers:{
       'Content-Type': 'application/json'
