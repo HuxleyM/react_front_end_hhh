@@ -12,7 +12,7 @@ export default class App extends Component {
       venuePortal: false
       }
     }
-  
+
   geolocateMe = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(this.getLatandLong);
@@ -24,8 +24,7 @@ export default class App extends Component {
   getLatandLong = (position) => {
       let location =  {location : {lat : position.coords.latitude.toFixed(2),  long : position.coords.longitude.toFixed(2)}};
       const body  = JSON.stringify(location)
-      //https://enigmatic-badlands-83570.herokuapp.com/api/v1/
-      fetch('http://localhost:3000/api/v1/venues', {
+      fetch('https://enigmatic-badlands-83570.herokuapp.com/api/v1/venues', {
         method: 'POST',
         headers:{
           'Content-Type': 'application/json'
@@ -41,7 +40,7 @@ export default class App extends Component {
         })
       })
     }
- 
+
    componentDidMount() {
     this.geolocateMe();
   }

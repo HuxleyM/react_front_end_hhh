@@ -9,7 +9,7 @@ export default class VenuePortal extends Component {
     this.state = {
       process: false
       }
-      this.handler = this.handler.bind(this);
+      this.setVenue = this.setVenue.bind(this);
     }
    
     _changeProcess(process){
@@ -26,7 +26,7 @@ export default class VenuePortal extends Component {
       })
     }
 
-    handler(venue) {
+    setVenue(venue) {
     this.setState({
         loggedIn: true,
         venue: venue
@@ -35,7 +35,8 @@ export default class VenuePortal extends Component {
 
     render() {
 
-      const { venue, loggedIn } = this.state;
+
+     const { venue, loggedIn } = this.state;
 
       return (
         <div>
