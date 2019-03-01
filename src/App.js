@@ -24,8 +24,7 @@ export default class App extends Component {
   getLatandLong = (position) => {
       let location =  {location : {lat : position.coords.latitude.toFixed(2),  long : position.coords.longitude.toFixed(2)}};
       const body  = JSON.stringify(location)
-      console.log(body)
-//https://enigmatic-badlands-83570.herokuapp.com/api/v1/
+      //https://enigmatic-badlands-83570.herokuapp.com/api/v1/
       fetch('http://localhost:3000/api/v1/venues', {
         method: 'POST',
         headers:{
@@ -40,9 +39,7 @@ export default class App extends Component {
         this.setState({
           venues: response
         })
-        console.log(response)
       })
-
     }
  
    componentDidMount() {
@@ -56,30 +53,22 @@ export default class App extends Component {
   }
 
   render() {
-// refactor to render sub render functions - see blog post !?!?
+
     const { venues, venuePortal } = this.state;
       return (
-        <div>
-        {
-          venuePortal ?
-          null
-          :
-          <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>
-        }
+        <div className='wrapper'>
+          {!venuePortal &&  <button id='venue_portal_button' onClick={()=> { this.venuePortal() } }>Venue Portal</button>}
+          <h1 id='title'>Keep Ahead</h1>
+          <hr/>
 
-        <h1>Keep Ahead</h1>
-
-        {
-          (!venuePortal && venues.length > 0) ?
-          <ShowVenues
-          venues={venues}
-          />
-          :
-          null
-        }
-        {
-           venuePortal ? <VenuePortal /> : null
-        }
+          {
+            (!venuePortal && venues.length > 0) ?
+            <ShowVenues
+            venues={venues}
+            />
+            :
+            <VenuePortal />
+          }
         </div>
       );
     }
