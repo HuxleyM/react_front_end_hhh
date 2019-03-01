@@ -199,4 +199,12 @@ action_button:hover{
     font-size: 18px;
   }
 
+  .listItem p, .listItem h3, .listItem button{
+    display:block;
+  }
+  .listItem button{
+   float:none; 
+   margin:0 auto;
+   background: none;
+  }
 }
