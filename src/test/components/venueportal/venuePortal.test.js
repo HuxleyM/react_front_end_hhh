@@ -16,40 +16,37 @@ describe('Venue Portal', () => {
 
    }  })
 
-   describe('#Render', () => {
+ describe('#Render', () => {
 
-     it('renders a home, signup & signin button', () => {
-       expect(wrapper.find('Home')).toBeTruthy()
-       expect(wrapper.find('Sign Up')).toBeTruthy()
-       expect(wrapper.find('Sign In')).toBeTruthy()
+   it('renders a home, signup & signin button', () => {
+     expect(wrapper.find('Home')).toBeTruthy()
+     expect(wrapper.find('Sign Up')).toBeTruthy()
+     expect(wrapper.find('Sign In')).toBeTruthy()
 
-     })
    })
+ })
 describe('#State changing functions', () => {
   it('#_onSignupClick changes the state of signin & signup', () => {
-    wrapper.find('button').first().simulate('click')
-    expect(wrapper.state('signin')).toBe(false)
-    expect(wrapper.state('signup')).toBe(true)
+    wrapper.find('button').at(1).simulate('click')
+    expect(wrapper.state('process')).toBe('signup')
     })
 
   it('#_onSignInClick changes the state of signin & signup', () => {
-    wrapper.find('button').at(1).simulate('click')
-    expect(wrapper.state('signin')).toBe(true)
-    expect(wrapper.state('signup')).toBe(false)
+    wrapper.find('button').at(2).simulate('click')
+    expect(wrapper.state('process')).toBe('signin')
   })
 
   it('#_onLogoutClick changes the state of signin, signup, loggedIn & venue', () => {
     let comp = wrapper.instance()
     comp._onLogoutClick()
-    expect(comp.state.signin).toBe(false)
-    expect(comp.state.signup).toBe(false)
+    expect(comp.state.process).toBe(false)
     expect(comp.state.loggedIn).toBe(false)
     expect(comp.state.venue).toBe(null)
   })
 
-  it('#handler changes the state of logged in & venue', () => {
+  it('#setVenue changes the state of logged in & venue', () => {
     let comp = wrapper.instance()
-    comp.handler(mockVenue)
+    comp.setVenue(mockVenue)
     expect(comp.state.loggedIn).toBe(true)
     expect(comp.state.venue).toBe(mockVenue)
   })

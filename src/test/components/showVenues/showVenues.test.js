@@ -6,7 +6,7 @@ describe("Show Venues", () => {
   let wrapper
   beforeEach(() => {
     wrapper = mount(<ShowVenues
-      venueList={[{name: 'test',
+      venues={[{name: 'test',
       address: '13 test street',
       email: 'test@test.com',
       password: 'testing'}]}

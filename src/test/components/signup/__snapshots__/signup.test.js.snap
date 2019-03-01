@@ -11,6 +11,7 @@ exports[`Sign up it Matches the snapshot 1`] = `
     <input
       id="venuename"
       placeholder="Crisis Cafe"
+      required={true}
       type="text"
     />
     <label>
@@ -19,6 +20,7 @@ exports[`Sign up it Matches the snapshot 1`] = `
     <input
       id="venueaddress"
       placeholder="10 Commercial Street"
+      required={true}
       type="text"
     />
     <label>
@@ -27,6 +29,7 @@ exports[`Sign up it Matches the snapshot 1`] = `
     <input
       id="venueEmail"
       placeholder="venue@gmail.com"
+      required={true}
       type="email"
     />
     <label>
@@ -34,11 +37,13 @@ exports[`Sign up it Matches the snapshot 1`] = `
     </label>
     <input
       id="password"
+      minLength="6"
       placeholder="qwe123"
+      required={true}
       type="password"
     />
     <input
-      className="submitForm"
+      className="submitForm action_button"
       id="submit_form"
       type="submit"
       value="Submit"
