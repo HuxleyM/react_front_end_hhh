@@ -1,10 +1,14 @@
 # Keep Ahead
 
+## Deployed here : keep-ahead.surge.sh
+
 ## Description
 A small web app designed to assist users in donating food to the homeless. The app allows a user, when approached by a homeless person, to donate an amount of money of their choosing to a local eatery. The venue then receives a notification of the donation and the amount. Attached to each donation is the name of the recipient and a passphrase decided on by the donator, these allow the venue to identify the recipient and offer them the amount donated in food or drink.
 
 ![Keep ahead ](https://github.com/HuxleyM/react_front_end_hhh/blob/master/keepahead%20screenshots/pic1.png)
 ![Keep ahead ](https://github.com/HuxleyM/react_front_end_hhh/blob/master/keepahead%20screenshots/pic3.png)
+
+
 
 ## Dependancies
 
